@@ -14,6 +14,15 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "service_benefit_eVGdjH": {
+          "type": "service_benefit",
+          "settings": {
+            "v2_enabled": true,
+            "text": "Island wide Delivery",
+            "link": "",
+            "v2_icon": "delivery"
+          }
+        },
         "announcement_fh4Ghc": {
           "type": "announcement",
           "settings": {
@@ -43,6 +52,7 @@
         }
       },
       "block_order": [
+        "service_benefit_eVGdjH",
         "announcement_fh4Ghc",
         "announcement_kRQPTp",
         "announcement_8EnJYg"
@@ -55,7 +65,7 @@
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
-        "v2_contact_enabled": false,
+        "v2_contact_enabled": true,
         "v2_contact_url": "",
         "v2_contact_label": "WhatsApp"
       }
