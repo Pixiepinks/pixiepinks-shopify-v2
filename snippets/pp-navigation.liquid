@@ -1,0 +1,35 @@
+<nav class="pp-navigation" aria-label="{{ 'pp_v2.navigation' | t }}">
+  <ul class="pp-navigation__list" role="list">
+    {% for link in section.settings.menu.links %}
+      <li>
+        {% if link.links == blank %}
+          <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+        {% else %}
+          <details class="pp-navigation__dropdown">
+            <summary aria-expanded="false">{{ link.title | escape }}{% render 'icon-caret' %}</summary>
+            <ul class="pp-navigation__panel" role="list">
+              <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ 'pp_v2.browse' | t }} {{ link.title | escape }}</a></li>
+              {% for childlink in link.links %}
+                <li>
+                  {% if childlink.links == blank %}
+                    <a href="{{ childlink.url }}"{% if childlink.current %} aria-current="page"{% endif %}>{{ childlink.title | escape }}</a>
+                  {% else %}
+                    <details>
+                      <summary aria-expanded="false">{{ childlink.title | escape }}{% render 'icon-caret' %}</summary>
+                      <ul role="list">
+                        <li><a href="{{ childlink.url }}"{% if childlink.current %} aria-current="page"{% endif %}>{{ 'pp_v2.browse' | t }} {{ childlink.title | escape }}</a></li>
+                        {% for grandchildlink in childlink.links %}
+                          <li><a href="{{ grandchildlink.url }}"{% if grandchildlink.current %} aria-current="page"{% endif %}>{{ grandchildlink.title | escape }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </details>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

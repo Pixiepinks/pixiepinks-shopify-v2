@@ -1,0 +1,19 @@
+.pp-service { color: var(--pp-service-text, var(--pp-white)); background: var(--pp-service-background, var(--pp-pink)); font-family: var(--pp-font); font-size: 12px; }
+.pp-service__inner { max-width: var(--pp-container); padding: 0 var(--pp-space-gutter); margin: auto; display: flex; align-items: center; gap: 20px; }
+.pp-service__messages { display: flex; align-items: center; flex: 1; gap: 24px; margin: 0; padding: 0; list-style: none; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; }
+.pp-service__message { flex: 0 0 auto; max-width: min(65ch, 100%); min-height: 40px; display: flex; align-items: center; gap: 8px; line-height: 1.5; padding: 6px 0; scroll-snap-align: start; }
+.pp-service__message a { display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.pp-service a { color: inherit; text-decoration: none; }
+.pp-service a:hover { text-decoration: underline; }
+.pp-service .pp-icon { width: 16px; height: 16px; flex-basis: 16px; }
+.pp-service__utility { display: flex; gap: 16px; white-space: nowrap; }
+.pp-service__utility a { display: flex; align-items: center; min-height: 40px; }
+.pp-service .list-social { flex-wrap: nowrap; }
+.pp-service .list-social__link { padding: 8px; color: inherit; }
+.pp-service :focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+@media (max-width: 989px) {
+  .pp-service__inner { display: block; padding: 0 16px; }
+  .pp-service__message { flex: 0 0 100%; max-width: 100%; justify-content: center; min-height: 44px; text-align: center; }
+  .pp-service__utility, .pp-service .list-social { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .pp-service__messages { scroll-behavior: auto; scroll-snap-type: none; } }

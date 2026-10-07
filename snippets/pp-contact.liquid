@@ -1,0 +1,6 @@
+{% if section.settings.v2_contact_enabled and section.settings.v2_contact_url != blank %}
+  <a class="pp-contact {{ contact_class }}" href="{{ section.settings.v2_contact_url }}">
+    {% render 'pp-icon', icon: 'chat' %}
+    <span><strong>{{ section.settings.v2_contact_label | default: 'Contact' | escape }}</strong>{% if section.settings.v2_contact_caption != blank %}<small>{{ section.settings.v2_contact_caption | escape }}</small>{% endif %}</span>
+  </a>
+{% endif %}

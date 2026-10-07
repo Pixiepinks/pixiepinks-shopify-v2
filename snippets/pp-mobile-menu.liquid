@@ -1,0 +1,53 @@
+<pp-menu class="pp-mobile-menu">
+  <button class="header__icon pp-menu__toggle" type="button" aria-expanded="false" aria-controls="PP-Menu-{{ section.id }}" aria-haspopup="dialog" aria-label="{{ 'pp_v2.open_menu' | t }}">
+    {% render 'icon-hamburger' %}
+  </button>
+  <dialog class="pp-menu__dialog" id="PP-Menu-{{ section.id }}" aria-label="{{ 'pp_v2.navigation' | t }}">
+    <div class="pp-menu__top"><strong>{{ shop.name | escape }}</strong><button class="pp-menu__close" type="button" aria-label="{{ 'pp_v2.close_menu' | t }}" autofocus>{% render 'icon-close' %}</button></div>
+    <nav aria-label="{{ 'pp_v2.navigation' | t }}">
+      <ul role="list">
+        {% for link in section.settings.menu.links %}
+          <li>
+            {% if link.links == blank %}<a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+            {% else %}
+              <details>
+                <summary aria-expanded="false">{{ link.title | escape }}{% render 'icon-caret' %}</summary>
+                <ul role="list">
+                  <li><a href="{{ link.url }}">{{ 'pp_v2.browse' | t }} {{ link.title | escape }}</a></li>
+                  {% for childlink in link.links %}
+                    <li>
+                      {% if childlink.links == blank %}<a href="{{ childlink.url }}"{% if childlink.current %} aria-current="page"{% endif %}>{{ childlink.title | escape }}</a>
+                      {% else %}
+                        <details><summary aria-expanded="false">{{ childlink.title | escape }}{% render 'icon-caret' %}</summary><ul role="list">
+                          <li><a href="{{ childlink.url }}">{{ 'pp_v2.browse' | t }} {{ childlink.title | escape }}</a></li>
+                          {% for grandchildlink in childlink.links %}<li><a href="{{ grandchildlink.url }}"{% if grandchildlink.current %} aria-current="page"{% endif %}>{{ grandchildlink.title | escape }}</a></li>{% endfor %}
+                        </ul></details>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </details>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="pp-menu__utilities">
+      {% if shop.customer_accounts_enabled %}<a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{% render 'icon-account' %} {{ 'customer.account_fallback' | t }}</a>{% endif %}
+      {% render 'pp-contact' %}
+    </div>
+  </dialog>
+  <noscript>
+    <nav aria-label="{{ 'pp_v2.navigation' | t }}"><ul role="list">
+      {% for link in section.settings.menu.links %}
+        <li><a href="{{ link.url }}">{{ link.title | escape }}</a>
+          {% if link.links != blank %}<ul role="list">{% for childlink in link.links %}
+            <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              {% if childlink.links != blank %}<ul role="list">{% for grandchildlink in childlink.links %}<li><a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a></li>{% endfor %}</ul>{% endif %}
+            </li>
+          {% endfor %}</ul>{% endif %}
+        </li>
+      {% endfor %}
+    </ul></nav>
+  </noscript>
+</pp-menu>

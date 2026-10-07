@@ -507,5 +507,6 @@
       "expanded": "Η φόρμα παραλήπτη δωροκάρτας αναπτύχθηκε",
       "collapsed": "Η φόρμα παραλήπτη δωροκάρτας συμπτύχθηκε"
     }
-  }
+  },
+  "pp_v2": {"navigation": "Main navigation", "utility_navigation": "Helpful links", "open_menu": "Open menu", "close_menu": "Close menu", "browse": "Browse", "contact": "Contact"}
 }

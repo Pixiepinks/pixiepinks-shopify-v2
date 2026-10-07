@@ -531,5 +531,6 @@
       "expanded": "Форма с данными получателя подарочной карты развернута",
       "collapsed": "Форма с данными получателя подарочной карты свернута"
     }
-  }
+  },
+  "pp_v2": {"navigation": "Main navigation", "utility_navigation": "Helpful links", "open_menu": "Open menu", "close_menu": "Close menu", "browse": "Browse", "contact": "Contact"}
 }
