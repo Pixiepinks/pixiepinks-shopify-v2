@@ -1,15 +1,19 @@
 /* PixiePinks V2 primitives. Commerce cards keep their existing Dawn styling. */
 :root {
-  --pp-pink: #c71763;
-  --pp-pink-deep: #a20e4c;
-  --pp-blush: #fce8ef;
-  --pp-pink-light: #fff6fa;
+  --pp-pink: #e50069;
+  --pp-pink-deep: #b90d55;
+  --pp-blush: #fde1ec;
+  --pp-pink-light: #fff5f9;
   --pp-navy: #19243e;
   --pp-text: #243047;
   --pp-muted: #657087;
   --pp-white: #fff;
   --pp-page: #fafbfd;
   --pp-border: #e4e7ed;
+  --pp-search-border: #f4bed4;
+  --pp-warm: #ffe28a;
+  --pp-service-blush: #fff2f7;
+  --pp-search-radius: 10px;
   --pp-success: #13734b;
   --pp-sale: var(--pp-pink-deep);
   --pp-warning: #825300;

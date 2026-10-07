@@ -17,3 +17,19 @@
   .pp-service__utility, .pp-service .list-social { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .pp-service__messages { scroll-behavior: auto; scroll-snap-type: none; } }
+/* Reference utility strip: blush surface, navy text and pink line icons. */
+.pp-service { color: var(--pp-service-text, var(--pp-navy)); background: var(--pp-service-background, var(--pp-service-blush)); }
+.pp-service__inner { gap: 16px; }
+.pp-service__messages { gap: 28px; }
+.pp-service__message { font-weight: 550; min-height: 36px; }
+.pp-service .pp-icon { color: var(--pp-pink); width: 20px; height: 20px; flex-basis: 20px; }
+.pp-service .pp-contact--service { background: transparent; padding: 0; min-height: 36px; gap: 6px; white-space: nowrap; }
+.pp-contact--service strong { font-size: 12px; font-weight: 650; }
+.pp-contact--service .pp-icon { color: var(--pp-navy); width: 16px; height: 16px; flex-basis: 16px; }
+.pp-service .list-social__link { padding: 7px; }
+.pp-service .list-social__link .icon { width: 14px; height: 14px; }
+@media (max-width: 1279px) { .pp-service .pp-contact--service, .pp-service__utility { display: none; } }
+@media (max-width: 989px) { .pp-service__message { min-height: 36px; } }
+.pp-service__messages { min-width: 0; }
+.pp-service__message { max-width: none; white-space: nowrap; }
+@media (max-width: 989px) { .pp-service__message { flex: 0 0 auto; min-width: 100%; max-width: none; } }

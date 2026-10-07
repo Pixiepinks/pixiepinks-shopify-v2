@@ -89,16 +89,17 @@
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
             {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
+              {%- assign pp_logo_width = section.settings.v2_logo_width | default: settings.logo_width -%}
+              <div class="header__heading-logo-wrapper" style="width: {{ pp_logo_width }}px">
                 {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+                {%- assign logo_height = pp_logo_width | divided_by: settings.logo.aspect_ratio -%}
+                {% capture sizes %}(max-width: {{ pp_logo_width | times: 2 }}px) 50vw, {{ pp_logo_width }}px{% endcapture %}
+                {% capture widths %}{{ pp_logo_width }}, {{ pp_logo_width | times: 1.5 | round }}, {{ pp_logo_width | times: 2 }}{% endcapture %}
                 {{ settings.logo | image_url: width: 600 | image_tag:
                   class: 'header__heading-logo motion-reduce',
                   widths: widths,
                   height: logo_height,
-                  width: settings.logo_width,
+                  width: pp_logo_width,
                   alt: logo_alt,
                   sizes: sizes,
                   preload: true
@@ -173,11 +174,12 @@
         {%- endif -%}
       </div>
       {% if section.settings.v2_show_search %}{% render 'header-search', input_id: 'Search-In-Modal' %}{% endif %}
-      {% render 'pp-contact', contact_class: 'pp-contact--desktop' %}
+
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
           {% render 'icon-account' %}
+          <span class="pp-account-copy" aria-hidden="true">{% if customer %}<strong>{{ 'pp_v2.account' | t }}</strong>{% else %}<strong>{{ 'pp_v2.login' | t }}</strong><small>{{ 'pp_v2.signup' | t }}</small>{% endif %}</span>
           <span class="visually-hidden">
             {%- liquid
               if customer
@@ -205,6 +207,7 @@
             render 'icon-cart'
           endif
         -%}
+        <span class="pp-cart-label" aria-hidden="true">{{ 'templates.cart.cart' | t }}</span>
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
@@ -215,6 +218,7 @@
           </div>
         {%- endif -%}
       </a>
+
     </div>
   </header>
   {% if section.settings.menu != blank %}{% render 'pp-navigation' %}{% endif %}
@@ -387,6 +391,16 @@
       "content": "PixiePinks V2"
     },
     {
+      "type": "range",
+      "id": "v2_logo_width",
+      "label": "Header logo width",
+      "min": 100,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 240
+    },
+    {
       "type": "checkbox",
       "id": "v2_sticky",
       "label": "Sticky header",
@@ -402,7 +416,7 @@
       "type": "text",
       "id": "v2_search_placeholder",
       "label": "Search placeholder",
-      "default": "Search bicycles, toys, school bags & more"
+      "default": "Search for bicycles, toys, school bags, gift packs and more..."
     },
     {
       "type": "checkbox",
@@ -467,6 +481,33 @@
       "unit": "px",
       "label": "t:sections.header.settings.margin_bottom.label",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Navigation offer link"
+    },
+    {
+      "type": "checkbox",
+      "id": "v2_offer_enabled",
+      "label": "Show offers link",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "v2_offer_label",
+      "label": "Offers label",
+      "default": "Today's Offers"
+    },
+    {
+      "type": "url",
+      "id": "v2_offer_url",
+      "label": "Offers destination"
+    },
+    {
+      "type": "checkbox",
+      "id": "v2_offer_icon",
+      "label": "Show gift icon",
+      "default": true
     }
   ],
   "blocks": [

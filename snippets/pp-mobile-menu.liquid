@@ -35,6 +35,7 @@
     <div class="pp-menu__utilities">
       {% if shop.customer_accounts_enabled %}<a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{% render 'icon-account' %} {{ 'customer.account_fallback' | t }}</a>{% endif %}
       {% render 'pp-contact' %}
+      {% render 'pp-offer' %}
     </div>
   </dialog>
   <noscript>

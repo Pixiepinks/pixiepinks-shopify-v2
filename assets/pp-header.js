@@ -73,7 +73,7 @@ document.addEventListener('click', (event) => {
   });
 });
 document.addEventListener('focusin', (event) => {
-  document.querySelectorAll('.pp-navigation > ul > li > details[open]').forEach((details) => {
+  document.querySelectorAll('.pp-navigation__inner > details[open], .pp-navigation__list > li > details[open]').forEach((details) => {
     if (!details.contains(event.target)) details.open = false;
   });
 });
@@ -89,4 +89,52 @@ measurePPHeader();
 document.addEventListener('shopify:section:load', (event) => measurePPHeader(event.target));
 document.addEventListener('shopify:section:unload', (event) => {
   event.target.querySelectorAll('.pp-header__main').forEach((main) => main.ppSizeObserver?.disconnect());
+});
+
+/* Move the same Shopify links into More; never synthesize destinations. */
+function initializePPOverflow(root = document) {
+  root.querySelectorAll('.pp-navigation').forEach((nav) => {
+    if (nav.ppOverflowObserver) return;
+    const list = nav.querySelector('.pp-navigation__list');
+    const more = list.querySelector('.pp-nav-more');
+    const panel = more.querySelector('.pp-nav-more__panel');
+    const items = Array.from(list.querySelectorAll(':scope > [data-pp-nav-item]'));
+    const fit = () => {
+      if (!nav.offsetWidth) return;
+      const active = nav.contains(document.activeElement) ? document.activeElement : null;
+      const restoreFocus = () => {
+        if (!active) return;
+        if (panel.contains(active)) more.querySelector('details').open = true;
+        const target = more.contains(active) && more.hidden ? nav.querySelector('.pp-all-categories > summary') : active;
+        target.focus({ preventScroll: true });
+      };
+      items.forEach((item) => list.insertBefore(item, more));
+      more.hidden = true;
+      const gap = parseFloat(getComputedStyle(list).columnGap) || 0;
+      const widths = items.map((item) => item.getBoundingClientRect().width);
+      const total = widths.reduce((sum, width) => sum + width + gap, -gap);
+      if (total <= list.clientWidth) { restoreFocus(); return; }
+      more.hidden = false;
+      const reserved = more.getBoundingClientRect().width + gap;
+      let used = 0;
+      let overflowing = false;
+      items.forEach((item, index) => {
+        const next = widths[index] + (used ? gap : 0);
+        if (overflowing || used + next + reserved > list.clientWidth) {
+          overflowing = true;
+          panel.appendChild(item);
+        } else used += next;
+      });
+      restoreFocus();
+    };
+    nav.ppOverflowObserver = new ResizeObserver(fit);
+    nav.ppOverflowObserver.observe(list);
+    document.fonts?.ready.then(fit);
+    fit();
+  });
+}
+initializePPOverflow();
+document.addEventListener('shopify:section:load', (event) => initializePPOverflow(event.target));
+document.addEventListener('shopify:section:unload', (event) => {
+  event.target.querySelectorAll('.pp-navigation').forEach((nav) => nav.ppOverflowObserver?.disconnect());
 });

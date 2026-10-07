@@ -1,0 +1,6 @@
+{% if section.settings.v2_offer_enabled and section.settings.v2_offer_url != blank %}
+  <a class="pp-offer" href="{{ section.settings.v2_offer_url }}">
+    {% if section.settings.v2_offer_icon %}{% render 'pp-icon', icon: 'gift' %}{% endif %}
+    {{ section.settings.v2_offer_label | default: "Today's Offers" | escape }}
+  </a>
+{% endif %}

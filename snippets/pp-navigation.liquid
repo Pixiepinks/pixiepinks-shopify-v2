@@ -1,7 +1,12 @@
 <nav class="pp-navigation" aria-label="{{ 'pp_v2.navigation' | t }}">
+  <div class="pp-navigation__inner">
+  <details class="pp-navigation__dropdown pp-all-categories">
+    <summary aria-expanded="false">{% render 'icon-hamburger' %} {{ 'pp_v2.all_categories' | t }}{% render 'icon-caret' %}</summary>
+    <div class="pp-navigation__panel">{% render 'pp-menu-tree' %}</div>
+  </details>
   <ul class="pp-navigation__list" role="list">
     {% for link in section.settings.menu.links %}
-      <li>
+      <li data-pp-nav-item>
         {% if link.links == blank %}
           <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
         {% else %}
@@ -31,5 +36,10 @@
         {% endif %}
       </li>
     {% endfor %}
+    <li class="pp-nav-more" hidden>
+      <details class="pp-navigation__dropdown"><summary aria-expanded="false">{{ 'pp_v2.more' | t }}{% render 'icon-caret' %}</summary><ul class="pp-navigation__panel pp-nav-more__panel" role="list"></ul></details>
+    </li>
   </ul>
+  {% render 'pp-offer' %}
+  </div>
 </nav>
