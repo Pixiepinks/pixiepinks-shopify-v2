@@ -27,7 +27,7 @@
             {% if block.settings.text != blank %}<p>{{ block.settings.text | escape }}</p>{% endif %}
             {% if destination != blank %}<a class="pp-button pp-promo__button" href="{{ destination }}" aria-label="{{ button_label | escape }}{% if heading != blank %}: {{ heading | escape }}{% endif %}">{{ button_label | escape }}<span aria-hidden="true">&rarr;</span></a>{% endif %}
           </div>
-          {% if image != blank %}<div class="pp-promo__image">{{ image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '240, 400, 600, 800', sizes: '(max-width: 749px) 45vw, (max-width: 989px) 25vw, 18vw', alt: '' }}</div>{% endif %}
+          {% if image != blank %}<div class="pp-promo__image">{{ image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '240, 400, 600, 800', sizes: '(max-width: 749px) 55vw, (max-width: 989px) 30vw, 20vw', alt: '' }}</div>{% endif %}
         </article>
       {% endif %}
     {% endfor %}

@@ -21,7 +21,7 @@
           <a href="{{ destination }}" class="pp-category__link">
             <span class="pp-category__image" style="--pp-category-accent: {{ block.settings.accent }};">
               {% if image != blank %}
-                {{ image | image_url: width: 240 | image_tag: loading: 'lazy', widths: '80, 120, 160, 240', sizes: '(max-width: 749px) 72px, 84px', alt: '' }}
+                {{ image | image_url: width: 240 | image_tag: loading: 'lazy', widths: '80, 120, 160, 240', sizes: '(max-width: 749px) 76px, 96px', alt: '' }}
               {% else %}
                 {% render 'pp-icon', icon: 'gift' %}
               {% endif %}
