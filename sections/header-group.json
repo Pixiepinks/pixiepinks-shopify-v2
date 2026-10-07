@@ -14,6 +14,15 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "service_benefit_x8qxcz": {
+          "type": "service_benefit",
+          "settings": {
+            "v2_enabled": true,
+            "text": "Secure Payments",
+            "link": "",
+            "v2_icon": "shield"
+          }
+        },
         "service_benefit_eVGdjH": {
           "type": "service_benefit",
           "settings": {
@@ -25,6 +34,7 @@
         }
       },
       "block_order": [
+        "service_benefit_x8qxcz",
         "service_benefit_eVGdjH"
       ],
       "settings": {
