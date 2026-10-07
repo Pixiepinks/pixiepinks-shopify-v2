@@ -1,1 +1,91 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_fh4Ghc":{"type":"announcement","settings":{"text":"පිටරට ඉන්න ඔයාලාගේ ලංකාවේ ඉන්න පුංචි දුවලට සහ පුතාලට ලස්සනම තෑගි පාර්සල් යවන්න ලංකාවේ තියෙන විශ්වසනීයම ඔන්ලයින් ෂොප් එක.","link":""}},"announcement_kRQPTp":{"type":"announcement","settings":{"text":"\"Personalized gift packs available in your child’s favorite themes – Spider-Man, Frozen, and more!\"","link":""}},"announcement_8EnJYg":{"type":"announcement","settings":{"text":"Free Nationwide Delivery on All Bicycles  & Electric cars– Shop Now!","link":""}}},"block_order":["announcement_fh4Ghc","announcement_kRQPTp","announcement_8EnJYg"],"settings":{"color_scheme":"background-1","show_line_separator":true,"show_social":true,"auto_rotate":true,"change_slides_speed":5,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","settings":{"logo_position":"middle-left","menu":"main-menu","menu_type_desktop":"dropdown","sticky_header_type":"on-scroll-up","show_line_separator":true,"color_scheme":"background-1","menu_color_scheme":"accent-2","enable_country_selector":false,"enable_language_selector":false,"mobile_logo_position":"center","margin_bottom":0,"padding_top":0,"padding_bottom":0}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_fh4Ghc": {
+          "type": "announcement",
+          "settings": {
+            "v2_enabled": true,
+            "text": "පිටරට ඉන්න ඔයාලාගේ ලංකාවේ ඉන්න පුංචි දුවලට සහ පුතාලට ලස්සනම තෑගි පාර්සල් යවන්න ලංකාවේ තියෙන විශ්වසනීයම ඔන්ලයින් ෂොප් එක.",
+            "link": "",
+            "v2_icon": "none"
+          }
+        },
+        "announcement_kRQPTp": {
+          "type": "announcement",
+          "settings": {
+            "v2_enabled": true,
+            "text": "\"Personalized gift packs available in your child’s favorite themes – Spider-Man, Frozen, and more!\"",
+            "link": "",
+            "v2_icon": "none"
+          }
+        },
+        "announcement_8EnJYg": {
+          "type": "announcement",
+          "settings": {
+            "v2_enabled": true,
+            "text": "Free Nationwide Delivery on All Bicycles  & Electric cars– Shop Now!",
+            "link": "",
+            "v2_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_fh4Ghc",
+        "announcement_kRQPTp",
+        "announcement_8EnJYg"
+      ],
+      "settings": {
+        "v2_show_announcements": false,
+        "v2_background": "#fff2f7",
+        "v2_text": "#19243e",
+        "v2_utility_menu": "",
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "v2_contact_enabled": false,
+        "v2_contact_url": "",
+        "v2_contact_label": "WhatsApp"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "v2_logo_width": 340,
+        "v2_sticky": true,
+        "v2_show_search": true,
+        "v2_search_placeholder": "Search for bicycles, toys, school bags, gift packs and more...",
+        "v2_contact_enabled": true,
+        "v2_contact_url": "",
+        "v2_contact_label": "WhatsApp",
+        "v2_contact_caption": "Chat with us",
+        "menu": "main-menu",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "margin_bottom": 0,
+        "v2_offer_enabled": true,
+        "v2_offer_label": "Today's Offers",
+        "v2_offer_url": "",
+        "v2_offer_icon": true
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
