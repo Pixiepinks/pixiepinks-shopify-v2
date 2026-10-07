@@ -151,3 +151,32 @@
   .pp-header .header__icon--cart .pp-cart-label { display: none; }
 }
 .pp-header .header__heading-logo { width: 100%; height: auto; }
+
+/* Phase 3B: explicit desktop dimensions; mobile retains its compact layout. */
+@media (min-width: 990px) {
+  .pp-header { --pp-container: 1600px; --pp-space-gutter: clamp(24px, 4vw, 64px); }
+  .pp-header .pp-header__main { gap: 28px; min-height: 120px; padding-block: 16px; }
+  .pp-header .header__heading-logo-wrapper { max-width: 320px; }
+  .pp-header .header__heading-logo { max-height: 100px; }
+  .pp-header .pp-desktop-search .field__input { height: 56px; font-size: 16px; letter-spacing: normal; padding-right: 110px; }
+  .pp-header .pp-desktop-search .field .search__button { width: 64px; height: 50px; }
+  .pp-header .pp-desktop-search .search__button .icon { width: 24px; height: 24px; }
+  .pp-desktop-search .reset__button { right: 70px; }
+  .pp-header .header__icons { gap: 20px; }
+  .pp-header .header__icon--account > .icon { width: 32px; height: 32px; }
+  .pp-header .header__icon--cart .icon { width: 34px; height: 34px; }
+  .pp-header .pp-account-copy, .pp-header .pp-cart-label { font-size: 15px; letter-spacing: normal; }
+  .pp-header .header__icon--account { gap: 10px; }
+  .pp-header .cart-count-bubble { min-width: 21px; min-height: 21px; font-size: 11px; }
+  .pp-navigation { padding-block: 4px; }
+  .pp-navigation :is(a, summary) { font-size: 15px; letter-spacing: normal; padding: 11px 13px; }
+  .pp-all-categories > summary { padding-inline: 20px; }
+  .pp-navigation .pp-offer { font-size: 15px; padding-inline: 18px; }
+}
+@media (min-width: 990px) and (max-width: 1199px) {
+  .pp-header .pp-header__main { gap: 20px; }
+  .pp-header .header__heading-logo-wrapper { max-width: 220px; }
+  .pp-header .header__heading-logo { max-height: 88px; }
+  .pp-header .header__icons { gap: 12px; }
+  .pp-header .pp-desktop-search .field__input { font-size: 14px; }
+}

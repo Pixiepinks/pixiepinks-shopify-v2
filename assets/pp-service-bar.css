@@ -33,3 +33,20 @@
 .pp-service__messages { min-width: 0; }
 .pp-service__message { max-width: none; white-space: nowrap; }
 @media (max-width: 989px) { .pp-service__message { flex: 0 0 auto; min-width: 100%; max-width: none; } }
+
+/* Service benefits and legacy announcements are separate merchant controls. */
+.pp-service { --pp-container: 1600px; --pp-space-gutter: clamp(24px, 4vw, 64px); font-size: 13px; letter-spacing: normal; }
+.pp-service__messages { flex-wrap: wrap; overflow: visible; gap: 4px 24px; }
+.pp-service__message { white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
+.pp-service__inner { flex-wrap: wrap; }
+.pp-service__messages:empty { display: none; }
+.pp-announcements { max-width: 1600px; margin: auto; padding: 8px clamp(16px, 4vw, 64px); font-size: 14px; }
+.pp-announcements summary { cursor: pointer; min-height: 32px; }
+.pp-announcements ul { padding-left: 20px; }
+.pp-announcements li { margin-block: 8px; overflow-wrap: anywhere; }
+.pp-announcements a { color: inherit; }
+@media (max-width: 989px) {
+  .pp-service__messages { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .pp-service__message { flex: 0 0 100%; min-width: 0; white-space: normal; }
+  .pp-service__inner { padding-inline: 16px; }
+}

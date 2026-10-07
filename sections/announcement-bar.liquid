@@ -7,7 +7,7 @@
   <div class="pp-service__inner">
     <ul class="pp-service__messages" role="list" tabindex="0" aria-label="{{ 'sections.header.announcement' | t }}">
       {% for block in section.blocks %}
-        {% if block.settings.text != blank and block.settings.v2_enabled != false %}
+        {% if block.type == 'service_benefit' and block.settings.text != blank and block.settings.v2_enabled != false %}
           <li class="pp-service__message" {{ block.shopify_attributes }}>
             {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
             {% render 'pp-icon', icon: block.settings.v2_icon %}
@@ -33,6 +33,22 @@
   </div>
 </div>
 {% endif %}
+{% if section.settings.v2_show_announcements %}
+  <details class="pp-announcements">
+    <summary>{{ 'sections.header.announcement' | t }}</summary>
+    <ul role="list">
+      {% for block in section.blocks %}
+        {% if block.type == 'announcement' and block.settings.text != blank and block.settings.v2_enabled != false %}
+          <li {{ block.shopify_attributes }}>
+            {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+            {{ block.settings.text | escape }}
+            {% if block.settings.link != blank %}</a>{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </details>
+{% endif %}
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
@@ -44,6 +60,16 @@
     ]
   },
   "settings": [
+    {
+      "type": "paragraph",
+      "content": "Add Service benefit blocks with short, verified statements. Existing announcements are preserved separately; enable the announcement panel to display them."
+    },
+    {
+      "type": "checkbox",
+      "id": "v2_show_announcements",
+      "label": "Show preserved announcement panel",
+      "default": false
+    },
     {
       "type": "color",
       "id": "v2_background",
@@ -128,7 +154,7 @@
         {
           "type": "checkbox",
           "id": "v2_enabled",
-          "label": "Show this service item",
+          "label": "Show this announcement",
           "default": true
         },
         {
@@ -183,19 +209,75 @@
           "default": "none"
         }
       ]
+    },
+    {
+      "type": "service_benefit",
+      "name": "Service benefit",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "v2_enabled",
+          "label": "Show this service item",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Verified service benefit",
+          "info": "Use a short label. Only describe policies confirmed by your store."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "select",
+          "id": "v2_icon",
+          "label": "Optional icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "sparkle",
+              "label": "Sparkle"
+            },
+            {
+              "value": "shield",
+              "label": "Secure payments"
+            },
+            {
+              "value": "returns",
+              "label": "Returns"
+            },
+            {
+              "value": "support",
+              "label": "Support"
+            }
+          ],
+          "default": "none"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "PixiePinks service bar",
-      "blocks": [
-        {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to PixiePinks"
-          }
-        }
-      ]
+      "blocks": []
     }
   ]
 }
