@@ -5,6 +5,7 @@
     render 'icon-cart'
   endif
 -%}
+<span class="pp-cart-label" aria-hidden="true">{{ 'templates.cart.cart' | t }}</span>
 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
 {%- if cart != empty -%}
   <div class="cart-count-bubble">

@@ -519,5 +519,6 @@
       "expanded": "Formularul pentru destinatarul cardului cadou este extins",
       "collapsed": "Formularul pentru destinatarul cardului cadou este restrâns"
     }
-  }
+  },
+  "pp_v2": {"navigation": "Main navigation", "utility_navigation": "Helpful links", "open_menu": "Open menu", "close_menu": "Close menu", "browse": "Browse", "contact": "Contact", "all_categories": "All Categories", "more": "More", "login": "Login", "signup": "or Sign Up", "account": "My account"}
 }
