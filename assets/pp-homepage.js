@@ -1,5 +1,11 @@
 /* Apply reduced-motion preferences to homepage slideshows without changing Dawn. */
 (() => {
+  // Use the usable viewport width, excluding scrollbars, for full-bleed breakout.
+  const setViewport = () => {
+    document.documentElement.style.setProperty('--pp-hero-viewport', `${document.documentElement.clientWidth}px`);
+  };
+  setViewport();
+  new ResizeObserver(setViewport).observe(document.documentElement);
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const pausedForMotion = new WeakSet();
   const sync = (root = document) => {
