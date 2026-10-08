@@ -183,6 +183,7 @@
           "type": "category",
           "settings": {
             "collection": "other",
+            "image": "shopify://shop_images/statinery.png",
             "label": "",
             "link": "",
             "accent": "#fff0d4"
