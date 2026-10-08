@@ -1,4 +1,4 @@
-/* Homepage surfaces only; shared commerce cards and other templates are untouched. */
+/* Homepage layout; shared product-card presentation lives in pp-product-card.css. */
 .pp-home, .pp-home-products, .pp-home-hero {
   --pp-home-width: 1600px;
   --pp-home-gutter: clamp(16px, 2vw, 32px);
@@ -126,21 +126,6 @@
 .pp-home-products .product-grid { --grid-desktop-horizontal-spacing: 12px; --grid-mobile-horizontal-spacing: 10px; --grid-desktop-vertical-spacing: 20px; --grid-mobile-vertical-spacing: 16px; }
 .pp-home-products .slider--desktop { scroll-padding-left: var(--pp-home-gutter); }
 .pp-home-products .slider--desktop .slider__slide:first-child { margin-left: var(--pp-home-gutter); }
-.pp-home-products .product-grid > li { display: flex; flex-direction: column; }
-.pp-home-products .card:not(.ratio) { height: auto; flex: 1; }
-.pp-home-products .card-wrapper { height: auto; display: flex; flex-direction: column; flex: 1; border: 1px solid var(--pp-border); border-radius: 16px; background: var(--pp-white); box-shadow: 0 2px 10px rgb(25 36 62 / 5%); padding: 8px; }
-.pp-home-products .card { --product-card-corner-radius: 16px; --product-card-border-width: 0px; --product-card-shadow-opacity: 0; --product-card-shadow-visible: 0; }
-.pp-home-products .card__inner.ratio::before { padding-bottom: 100%; }
-.pp-home-products .card__inner { border-radius: 12px; overflow: hidden; background: var(--pp-page); }
-.pp-home-products .card .media img { object-fit: contain; }
-.pp-home-products .card__heading { font-family: var(--pp-font); font-size: 15px; line-height: 1.35; font-weight: 650; color: var(--pp-navy); }
-.pp-home-products .price { font-family: var(--pp-font); font-size: 17px; font-weight: 700; }
-.pp-home-products .price-item--regular:not(:only-child) { font-weight: 400; }
-.pp-home-products .badge { border-radius: var(--pp-radius-pill); }
-.pp-home-products .quick-add__submit { min-width: 0; padding-inline: 8px; border-radius: var(--pp-radius-pill); min-height: 44px; }
-.pp-home-products .quick-add__submit::after { border-radius: var(--pp-radius-pill); }
-.pp-home-products .card__information { padding-block: 12px 8px; }
-.pp-home-products .quick-add { margin-bottom: 4px; }
 .pp-home-products .slider-buttons { gap: 8px; margin-top: 8px; }
 @media (min-width: 1280px) {
   /* Dense four-column carousel uses five visible cards; other merchant layouts stay authoritative. */
@@ -174,9 +159,6 @@
   .pp-promo h3 { font-size: clamp(20px, 5.8vw, 23px); }
   .pp-promo__copy { flex-basis: 48%; }
   .pp-promo__image { flex-basis: 52%; }
-  .pp-home-products .card-wrapper { padding: 7px; }
-  .pp-home-products .card__heading { font-size: 14px; }
-  .pp-home-products .price { font-size: 15px; }
   .pp-home-products .title { font-size: 22px; }
   .pp-home-products .collection__title { gap: 8px 16px; }
   .pp-home-products .product-grid.slider--tablet.grid--peek.grid--2-col-tablet-down > .grid__item { width: calc((100% - 2 * var(--pp-home-gutter) - 10px - 24px) / 2); min-width: 0; max-width: none; }
