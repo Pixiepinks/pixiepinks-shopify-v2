@@ -236,6 +236,7 @@
           "type": "promotion",
           "settings": {
             "collection": "gift-packs",
+            "image": "shopify://shop_images/Bi.png",
             "image_alt": "",
             "heading": "",
             "text": "",
