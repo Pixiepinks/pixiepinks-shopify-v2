@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "slideshow_3kKqaH": {
@@ -24,7 +33,8 @@
         "slide_Ar8U7U": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/shopify_background.png",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_31_01_AM.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_37_03_AM.png",
             "heading": "\"Sri Lanka's Largest online Bicycle Collection\"",
             "heading_size": "h2",
             "subheading": "",
@@ -93,10 +103,194 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "pp_categories": {
+      "type": "pp-category-strip",
+      "blocks": {
+        "category_1": {
+          "type": "category",
+          "settings": {
+            "collection": "bicycle",
+            "label": "",
+            "link": "",
+            "accent": "#def2ff"
+          }
+        },
+        "category_2": {
+          "type": "category",
+          "settings": {
+            "collection": "gift-packs",
+            "label": "",
+            "link": "",
+            "accent": "#ffe8df"
+          }
+        },
+        "category_3": {
+          "type": "category",
+          "settings": {
+            "collection": "sweet-treats",
+            "label": "",
+            "link": "",
+            "accent": "#fce3f0"
+          }
+        },
+        "category_4": {
+          "type": "category",
+          "settings": {
+            "collection": "scooters",
+            "label": "",
+            "link": "",
+            "accent": "#e9e3ff"
+          }
+        },
+        "category_5": {
+          "type": "category",
+          "settings": {
+            "collection": "spider-man",
+            "label": "",
+            "link": "",
+            "accent": "#dbf4e7"
+          }
+        },
+        "category_6": {
+          "type": "category",
+          "settings": {
+            "collection": "tricycle",
+            "label": "",
+            "link": "",
+            "accent": "#fff0d4"
+          }
+        },
+        "category_7": {
+          "type": "category",
+          "settings": {
+            "collection": "toy-vehicles",
+            "label": "",
+            "link": "",
+            "accent": "#def2ff"
+          }
+        },
+        "category_8": {
+          "type": "category",
+          "settings": {
+            "collection": "school-bags-back-packs",
+            "label": "",
+            "link": "",
+            "accent": "#ffe8df"
+          }
+        },
+        "category_9": {
+          "type": "category",
+          "settings": {
+            "collection": "water-bottle",
+            "label": "",
+            "link": "",
+            "accent": "#fce3f0"
+          }
+        },
+        "category_10": {
+          "type": "category",
+          "settings": {
+            "collection": "meal-boxes",
+            "label": "",
+            "link": "",
+            "accent": "#e9e3ff"
+          }
+        },
+        "category_11": {
+          "type": "category",
+          "settings": {
+            "collection": "coloring-materials",
+            "label": "",
+            "link": "",
+            "accent": "#dbf4e7"
+          }
+        },
+        "category_12": {
+          "type": "category",
+          "settings": {
+            "collection": "other",
+            "label": "",
+            "link": "",
+            "accent": "#fff0d4"
+          }
+        }
+      },
+      "block_order": [
+        "category_1",
+        "category_2",
+        "category_3",
+        "category_4",
+        "category_5",
+        "category_6",
+        "category_7",
+        "category_8",
+        "category_9",
+        "category_10",
+        "category_11",
+        "category_12"
+      ],
+      "settings": {
+        "heading": "",
+        "enabled": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "pp_promotions": {
+      "type": "pp-promo-cards",
+      "blocks": {
+        "promotion_1": {
+          "type": "promotion",
+          "settings": {
+            "collection": "bicycle",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "accent": "#e4f2ff"
+          }
+        },
+        "promotion_2": {
+          "type": "promotion",
+          "settings": {
+            "collection": "gift-packs",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "accent": "#fff0f4"
+          }
+        },
+        "promotion_3": {
+          "type": "promotion",
+          "settings": {
+            "collection": "sweet-treats",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "accent": "#eee5ff"
+          }
+        }
+      },
+      "block_order": [
+        "promotion_1",
+        "promotion_2",
+        "promotion_3"
+      ],
+      "settings": {
+        "heading": "",
+        "enabled": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
     "featured_collection_UFg7hX": {
       "type": "pp-featured-products",
       "name": "New Arrival ",
       "settings": {
+        "enabled": true,
+        "offers_only": false,
         "title": "New Arrivals",
         "heading_size": "h2",
         "description": "",
@@ -119,9 +313,37 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 0
+      }
+    },
+    "pp_offers": {
+      "type": "pp-featured-products",
+      "settings": {
         "enabled": true,
-        "offers_only": false
+        "offers_only": true,
+        "title": "Today's Special Offers",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "featured_collection_KAUTAf": {
@@ -838,169 +1060,6 @@
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "pp_categories": {
-      "type": "pp-category-strip",
-      "blocks": {
-        "category_1": {
-          "type": "category",
-          "settings": {
-            "collection": "bicycle",
-            "accent": "#DEF2FF"
-          }
-        },
-        "category_2": {
-          "type": "category",
-          "settings": {
-            "collection": "gift-packs",
-            "accent": "#FFE8DF"
-          }
-        },
-        "category_3": {
-          "type": "category",
-          "settings": {
-            "collection": "sweet-treats",
-            "accent": "#FCE3F0"
-          }
-        },
-        "category_4": {
-          "type": "category",
-          "settings": {
-            "collection": "scooters",
-            "accent": "#E9E3FF"
-          }
-        },
-        "category_5": {
-          "type": "category",
-          "settings": {
-            "collection": "spider-man",
-            "accent": "#DBF4E7"
-          }
-        },
-        "category_6": {
-          "type": "category",
-          "settings": {
-            "collection": "tricycle",
-            "accent": "#FFF0D4"
-          }
-        },
-        "category_7": {
-          "type": "category",
-          "settings": {
-            "collection": "toy-vehicles",
-            "accent": "#DEF2FF"
-          }
-        },
-        "category_8": {
-          "type": "category",
-          "settings": {
-            "collection": "school-bags-back-packs",
-            "accent": "#FFE8DF"
-          }
-        },
-        "category_9": {
-          "type": "category",
-          "settings": {
-            "collection": "water-bottle",
-            "accent": "#FCE3F0"
-          }
-        },
-        "category_10": {
-          "type": "category",
-          "settings": {
-            "collection": "meal-boxes",
-            "accent": "#E9E3FF"
-          }
-        },
-        "category_11": {
-          "type": "category",
-          "settings": {
-            "collection": "coloring-materials",
-            "accent": "#DBF4E7"
-          }
-        },
-        "category_12": {
-          "type": "category",
-          "settings": {
-            "collection": "other",
-            "accent": "#FFF0D4"
-          }
-        }
-      },
-      "block_order": [
-        "category_1",
-        "category_2",
-        "category_3",
-        "category_4",
-        "category_5",
-        "category_6",
-        "category_7",
-        "category_8",
-        "category_9",
-        "category_10",
-        "category_11",
-        "category_12"
-      ],
-      "settings": {
-        "enabled": true,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "pp_promotions": {
-      "type": "pp-promo-cards",
-      "blocks": {
-        "promotion_1": {
-          "type": "promotion",
-          "settings": {
-            "collection": "bicycle",
-            "accent": "#E4F2FF"
-          }
-        },
-        "promotion_2": {
-          "type": "promotion",
-          "settings": {
-            "collection": "gift-packs",
-            "accent": "#FFF0F4"
-          }
-        },
-        "promotion_3": {
-          "type": "promotion",
-          "settings": {
-            "collection": "sweet-treats",
-            "accent": "#EEE5FF"
-          }
-        }
-      },
-      "block_order": [
-        "promotion_1",
-        "promotion_2",
-        "promotion_3"
-      ],
-      "settings": {
-        "enabled": true,
-        "padding_top": 0,
-        "padding_bottom": 24
-      }
-    },
-    "pp_offers": {
-      "type": "pp-featured-products",
-      "settings": {
-        "enabled": true,
-        "offers_only": true,
-        "title": "Today's Special Offers",
-        "heading_size": "h2",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_view_all": true,
-        "enable_desktop_slider": true,
-        "swipe_on_mobile": true,
-        "padding_top": 24,
-        "padding_bottom": 24
       }
     }
   },
