@@ -1,6 +1,10 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{% if request.page_type == 'index' %}
+  {{ 'pp-homepage.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'pp-homepage.js' | asset_url }}" defer="defer"></script>
+{% endif %}
 
 {%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
   {%- style -%}
@@ -26,7 +30,7 @@
 {%- endif -%}
 
 <slideshow-component
-  class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
+  class="{% if request.page_type == 'index' %}pp-home-hero {% endif %}slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
   role="region"
   aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
   aria-label="{{ section.settings.accessibility_info | escape }}"
@@ -139,10 +143,18 @@
                 assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
               endif
             -%}
+            {% liquid
+              assign image_loading = 'lazy'
+              assign image_priority = 'auto'
+              if forloop.first and request.page_type == 'index'
+                assign image_loading = 'eager'
+                assign image_priority = 'high'
+              endif
+            %}
             {{
               block.settings.image
               | image_url: width: 3840
-              | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
+              | image_tag: loading: image_loading, fetchpriority: image_priority, height: height, sizes: sizes, widths: widths
             }}
           {%- else -%}
             {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
