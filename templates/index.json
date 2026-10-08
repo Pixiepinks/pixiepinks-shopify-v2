@@ -12,24 +12,6 @@
     "slideshow_3kKqaH": {
       "type": "slideshow",
       "blocks": {
-        "slide_eCdC7q": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Shopify_Hero_Bicycle.png",
-            "heading": "",
-            "heading_size": "h2",
-            "subheading": "",
-            "button_label": "Shop Now",
-            "link": "shopify://collections/bicycle",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
-            "text_alignment_mobile": "center"
-          }
-        },
         "slide_Ar8U7U": {
           "type": "slide",
           "settings": {
@@ -38,44 +20,8 @@
             "heading": "\"Sri Lanka's Largest online Bicycle Collection\"",
             "heading_size": "h2",
             "subheading": "",
-            "button_label": "Shop Now",
+            "button_label": "",
             "link": "shopify://collections/bicycle",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_AiLgXk": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Sep_2_2026_12_07_17_PM.png",
-            "heading": "",
-            "heading_size": "h2",
-            "subheading": "",
-            "button_label": "Shop Now",
-            "link": "shopify://collections/gift-packs",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_mRiNwf": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Apr_10_2025_06_28_09_PM.png",
-            "heading": "\"Kids Happy Place\"",
-            "heading_size": "h2",
-            "subheading": "",
-            "button_label": "Shop Now",
-            "link": "shopify://collections/featured-collection",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": false,
@@ -87,10 +33,7 @@
         }
       },
       "block_order": [
-        "slide_eCdC7q",
-        "slide_Ar8U7U",
-        "slide_AiLgXk",
-        "slide_mRiNwf"
+        "slide_Ar8U7U"
       ],
       "settings": {
         "layout": "full_bleed",
