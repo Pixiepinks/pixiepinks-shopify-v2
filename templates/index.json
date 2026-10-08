@@ -103,6 +103,7 @@
           "type": "category",
           "settings": {
             "collection": "scooters",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_44_50_PM.png",
             "label": "",
             "link": "",
             "accent": "#e9e3ff"
