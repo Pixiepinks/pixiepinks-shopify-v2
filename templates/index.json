@@ -123,6 +123,7 @@
           "type": "category",
           "settings": {
             "collection": "tricycle",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_58_27_PM_1.png",
             "label": "",
             "link": "",
             "accent": "#fff0d4"
