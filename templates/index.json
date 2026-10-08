@@ -163,7 +163,7 @@
           "type": "category",
           "settings": {
             "collection": "meal-boxes",
-            "image": "shopify://shop_images/Meal_Box.png",
+            "image": "shopify://shop_images/Pink_Meal_box.png",
             "label": "",
             "link": "",
             "accent": "#e9e3ff"
