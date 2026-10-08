@@ -113,6 +113,7 @@
           "type": "category",
           "settings": {
             "collection": "spider-man",
+            "image": "shopify://shop_images/Spider_Man.png",
             "label": "",
             "link": "",
             "accent": "#dbf4e7"
