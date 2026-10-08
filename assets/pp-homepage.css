@@ -25,15 +25,28 @@
 }
 .pp-home a { text-decoration: none; }
 .pp-home-hero {
-  width: calc(100% - 2 * var(--pp-home-gutter));
-  max-width: calc(var(--pp-home-width) - 2 * var(--pp-home-gutter));
-  margin: 12px auto 0;
+  width: var(--pp-hero-viewport, 100%);
+  max-width: none;
+  margin: 0 calc((100% - var(--pp-hero-viewport, 100%)) / 2);
   padding: 0;
 }
-.pp-home-hero .slideshow { border-radius: var(--pp-radius-card); overflow: hidden; }
-.pp-home-hero .slideshow.banner--medium { min-height: clamp(300px, 29vw, 430px); }
-.pp-home-hero .slideshow.banner--small { min-height: clamp(220px, 20vw, 320px); }
-.pp-home-hero .banner__media img { object-fit: contain; background: var(--pp-pink-light); }
+.pp-home-hero .slideshow.banner {
+  height: calc(var(--pp-hero-viewport, 100vw) * 700 / 1920);
+  min-height: 0;
+  border-radius: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.pp-home-hero .slideshow::-webkit-scrollbar { display: none; }
+.pp-home-hero .slideshow__slide { height: 100%; }
+.pp-home-hero .slideshow::before, .pp-home-hero .slideshow .media::before,
+.pp-home-hero .slideshow .banner__content::before { display: none; }
+.pp-home-hero .banner__media { overflow: hidden; }
+.pp-home-hero .pp-hero-picture { position: absolute; inset: 0; display: block; overflow: hidden; background: var(--pp-pink-light); }
+.pp-home-hero .pp-hero-picture::before { content: ''; position: absolute; inset: -20px; background-image: var(--pp-hero-backdrop, none); background-size: cover; background-position: center; filter: blur(18px); opacity: 0.65; }
+.pp-home-hero .pp-hero-picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: transparent; }
+.pp-home-hero .banner__media.animate--zoom-in img { position: absolute; height: 100%; }
 .pp-home-hero .slideshow__text-wrapper { padding: 32px 64px; }
 .pp-home-hero .banner__box { border-radius: var(--pp-radius-card); }
 .pp-home-hero .banner__buttons .button { border-radius: var(--pp-radius-pill); min-height: 48px; font-weight: 700; }
@@ -129,12 +142,6 @@
 .pp-home-products .card__information { padding-block: 12px 8px; }
 .pp-home-products .quick-add { margin-bottom: 4px; }
 .pp-home-products .slider-buttons { gap: 8px; margin-top: 8px; }
-@media (min-width: 750px) {
-  .pp-home-hero .slideshow__controls { position: static; z-index: 4; }
-  .pp-home-hero .slider-button--prev, .pp-home-hero .slider-button--next { position: absolute; top: calc((100% - 44px) / 2); transform: translateY(-50%); box-shadow: var(--pp-shadow-sm); z-index: 3; }
-  .pp-home-hero .slider-button--prev { left: 16px; }
-  .pp-home-hero .slider-button--next { right: 16px; }
-}
 @media (min-width: 1280px) {
   /* Dense four-column carousel uses five visible cards; other merchant layouts stay authoritative. */
   .pp-home-products .product-grid.slider--desktop.grid--4-col-desktop > .grid__item { width: calc((100% - 2 * var(--pp-home-gutter) - 4 * 12px) / 5); max-width: none; }
@@ -146,12 +153,12 @@
   .pp-home-products .slider--tablet .slider__slide:first-child { margin-left: var(--pp-home-gutter); }
 }
 @media (max-width: 749px) {
-  .pp-home-hero { margin-top: 8px; }
-  .pp-home-hero .slideshow { border-radius: var(--pp-radius-sm); }
-  .pp-home-hero .slideshow.banner--medium { min-height: 208px; }
-  .pp-home-hero .slideshow.banner--medium:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content { min-height: 208px; }
-  .pp-home-hero .slideshow.banner--small { min-height: 184px; }
-  .pp-home-hero .slideshow.banner--small:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content { min-height: 184px; }
+  .pp-home-hero .slideshow.banner { height: var(--pp-hero-viewport, 100vw); min-height: 0; }
+  .pp-home-hero .slideshow.banner .banner__content { min-height: 0; }
+  .pp-home-hero .slideshow.banner--mobile-bottom { height: auto; align-items: start; }
+  .pp-home-hero .banner--mobile-bottom .slideshow__slide { height: auto; }
+  .pp-home-hero .slideshow.banner--mobile-bottom .slideshow__media.banner__media { position: relative; height: var(--pp-hero-viewport, 100vw); }
+  .pp-home-hero .banner--mobile-bottom .slideshow__text-wrapper { height: auto; }
   .pp-home-hero .slider-button { border-color: transparent; background: transparent; }
   .pp-home-hero .slideshow__text-wrapper { padding: 16px; }
   .pp-home-hero .banner__box { padding: 16px; min-width: 0; }

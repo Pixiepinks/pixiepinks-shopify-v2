@@ -29,6 +29,14 @@
   {%- endstyle -%}
 {%- endif -%}
 
+{% if request.page_type == 'index' %}
+  {% style %}
+    #Slider-{{ section.id }}::before,
+    #Slider-{{ section.id }} .media::before,
+    #Slider-{{ section.id }} .banner__content::before { display: none; }
+  {% endstyle %}
+{% endif %}
+
 <slideshow-component
   class="{% if request.page_type == 'index' %}pp-home-hero {% endif %}slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
   role="region"
@@ -109,7 +117,7 @@
   {%- endif -%}
 
   <div
-    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank and section.blocks.first.settings.mobile_image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     id="Slider-{{ section.id }}"
     aria-live="polite"
     aria-atomic="true"
@@ -131,10 +139,33 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
-        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-          {%- if block.settings.image -%}
+        {% if request.page_type == 'index' %}
+          {% liquid
+            assign desktop_art = block.settings.image | default: block.settings.mobile_image
+            assign mobile_art = block.settings.mobile_image | default: desktop_art
+          %}
+          {% style %}
+            @media (min-width: 750px) {
+              #Slide-{{ section.id }}-{{ forloop.index }} .pp-hero-picture {
+                {% if desktop_art != blank and desktop_art.aspect_ratio < 2.5 or desktop_art.aspect_ratio > 3 %}
+                  --pp-hero-backdrop: url({{ desktop_art | image_url: width: 480 }});
+                {% endif %}
+              }
+            }
+            @media (max-width: 749px) {
+              #Slide-{{ section.id }}-{{ forloop.index }} .pp-hero-picture {
+                {% if mobile_art != blank and mobile_art.aspect_ratio < 0.95 or mobile_art.aspect_ratio > 1.05 %}
+                  --pp-hero-backdrop: url({{ mobile_art | image_url: width: 320 }});
+                {% endif %}
+              }
+            }
+          {% endstyle %}
+        {% endif %}
+        <div class="slideshow__media banner__media media{% if block.settings.image == blank and block.settings.mobile_image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+          {%- if block.settings.image or block.settings.mobile_image -%}
             {%- liquid
-              assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
+              assign desktop_image = block.settings.image | default: block.settings.mobile_image
+              assign height = desktop_image.width | divided_by: desktop_image.aspect_ratio | round
               if section.settings.image_behavior == 'ambient'
                 assign sizes = '120vw'
                 assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
@@ -151,11 +182,21 @@
                 assign image_priority = 'high'
               endif
             %}
-            {{
-              block.settings.image
-              | image_url: width: 3840
-              | image_tag: loading: image_loading, fetchpriority: image_priority, height: height, sizes: sizes, widths: widths
-            }}
+            {% if request.page_type == 'index' %}
+              {% assign mobile_image = block.settings.mobile_image | default: desktop_image %}
+              <picture class="pp-hero-picture">
+                <source
+                  media="(max-width: 749px)"
+                  srcset="{{ mobile_image | image_url: width: 375 }} 375w, {{ mobile_image | image_url: width: 550 }} 550w, {{ mobile_image | image_url: width: 750 }} 750w, {{ mobile_image | image_url: width: 1080 }} 1080w"
+                  sizes="100vw"
+                  width="{{ mobile_image.width }}"
+                  height="{{ mobile_image.height }}"
+                >
+                {{ desktop_image | image_url: width: 2560 | image_tag: loading: image_loading, fetchpriority: image_priority, height: height, sizes: '100vw', widths: '750, 1100, 1440, 1920, 2560', alt: desktop_image.alt }}
+              </picture>
+            {% else %}
+              {{ block.settings.image | image_url: width: 3840 | image_tag: loading: image_loading, height: height, sizes: sizes, widths: widths }}
+            {% endif %}
           {%- else -%}
             {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
             {%- if placeholder_slide == 1 -%}
@@ -411,7 +452,14 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+          "label": "Desktop banner image",
+          "info": "Recommended: 1920 × 700 px. Existing image selections are preserved."
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile banner image",
+          "info": "Recommended: 1080 × 1080 px. Falls back to the desktop image when empty."
         },
         {
           "type": "inline_richtext",
