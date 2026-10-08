@@ -52,10 +52,10 @@
         "v2_background": "#fff2f7",
         "v2_text": "#19243e",
         "v2_utility_menu": "",
-        "show_social": true,
+        "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false,
-        "v2_contact_enabled": true,
+        "v2_contact_enabled": false,
         "v2_contact_url": "",
         "v2_contact_label": "WhatsApp"
       }
