@@ -73,6 +73,7 @@
           "type": "category",
           "settings": {
             "collection": "bicycle",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_03_21_19_PM.png",
             "label": "",
             "link": "",
             "accent": "#def2ff"
