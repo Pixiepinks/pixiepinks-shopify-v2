@@ -173,6 +173,7 @@
           "type": "category",
           "settings": {
             "collection": "coloring-materials",
+            "image": "shopify://shop_images/Coloring_Matterial.png",
             "label": "",
             "link": "",
             "accent": "#dbf4e7"
