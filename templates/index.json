@@ -83,6 +83,7 @@
           "type": "category",
           "settings": {
             "collection": "gift-packs",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_39_38_PM.png",
             "label": "",
             "link": "",
             "accent": "#ffe8df"
