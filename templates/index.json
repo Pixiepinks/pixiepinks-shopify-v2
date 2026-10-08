@@ -143,6 +143,7 @@
           "type": "category",
           "settings": {
             "collection": "school-bags-back-packs",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_06_18_39_PM.png",
             "label": "",
             "link": "",
             "accent": "#ffe8df"
@@ -152,6 +153,7 @@
           "type": "category",
           "settings": {
             "collection": "water-bottle",
+            "image": "shopify://shop_images/Water.png",
             "label": "",
             "link": "",
             "accent": "#fce3f0"
