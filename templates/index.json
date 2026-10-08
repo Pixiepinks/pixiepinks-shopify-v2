@@ -133,6 +133,7 @@
           "type": "category",
           "settings": {
             "collection": "toy-vehicles",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_06_00_37_PM.png",
             "label": "",
             "link": "",
             "accent": "#def2ff"
