@@ -30,10 +30,30 @@
             "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_FNaCRz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_02_35_53_PM.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_03_01_08_PM.png",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/bicycle",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
-        "slide_Ar8U7U"
+        "slide_Ar8U7U",
+        "slide_FNaCRz"
       ],
       "settings": {
         "layout": "full_bleed",
