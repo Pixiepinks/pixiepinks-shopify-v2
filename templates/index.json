@@ -284,6 +284,16 @@
     "pp_customer_love_7JBpPi": {
       "type": "pp-customer-love",
       "blocks": {
+        "review_MJpMhj": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_23_52_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
         "review_WMjwfE": {
           "type": "review",
           "settings": {
@@ -325,6 +335,7 @@
         }
       },
       "block_order": [
+        "review_MJpMhj",
         "review_WMjwfE",
         "review_RewFzb",
         "review_97L66B",
