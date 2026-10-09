@@ -235,7 +235,7 @@
         "promotion_2": {
           "type": "promotion",
           "settings": {
-            "collection": "gift-packs",
+            "collection": "bicycle",
             "image": "shopify://shop_images/Bi.png",
             "image_alt": "",
             "heading": "",
