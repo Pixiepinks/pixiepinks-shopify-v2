@@ -174,6 +174,33 @@
   .pp-promo-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .pp-promo-grid > :last-child:nth-child(odd) { grid-column: auto; width: auto; justify-self: stretch; }
   .pp-promo { aspect-ratio: var(--pp-promo-mobile-ratio, 3.8); }
+  /* Compact visible pill inside the unchanged 44px mobile touch target. */
+  .pp-promo__button {
+    position: relative;
+    isolation: isolate;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 4px 10px;
+    gap: 4px;
+    font-size: 12px;
+    background: transparent;
+    box-shadow: none;
+  }
+  .pp-promo__button::before {
+    content: '';
+    position: absolute;
+    inset: 9px 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--pp-pink);
+    box-shadow: 0 2px 6px rgb(25 36 62 / 10%);
+    transition: background var(--pp-transition);
+  }
+  .pp-promo__button > span { font-size: 10px; line-height: 1; }
+  .pp-promo__button:hover { background: transparent; }
+  .pp-promo__button:hover::before { background: var(--pp-pink-deep); }
+  .pp-promo .pp-promo__button:focus-visible { outline: 2px solid var(--pp-navy); outline-offset: 1px; box-shadow: none; }
+  .pp-promo__button:focus-visible::before { outline: 2px solid var(--pp-white); outline-offset: -4px; }
   .pp-home-products .title { font-size: 22px; }
   .pp-home-products .collection__title { gap: 8px 16px; }
   .pp-home-products .product-grid.slider--tablet.grid--peek.grid--2-col-tablet-down > .grid__item { width: calc((100% - 2 * var(--pp-home-gutter) - 10px - 24px) / 2); min-width: 0; max-width: none; }
