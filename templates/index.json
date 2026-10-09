@@ -284,6 +284,25 @@
     "pp_customer_love_7JBpPi": {
       "type": "pp-customer-love",
       "blocks": {
+        "review_WMjwfE": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_17_07_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
+        "review_RewFzb": {
+          "type": "review",
+          "settings": {
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
         "review_97L66B": {
           "type": "review",
           "settings": {
@@ -306,6 +325,8 @@
         }
       },
       "block_order": [
+        "review_WMjwfE",
+        "review_RewFzb",
         "review_97L66B",
         "review_crdMbU"
       ],
