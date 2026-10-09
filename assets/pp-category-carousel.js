@@ -3,16 +3,12 @@ if (!customElements.get('pp-category-carousel')) {
   customElements.define('pp-category-carousel', class extends HTMLElement {
     connectedCallback() {
       this.list = this.querySelector('.pp-category-strip');
-      this.control = this.querySelector('.pp-category-control');
-      if (!this.list || !this.control) return;
+      if (!this.list) return;
       this.items = Array.from(this.list.children);
       this.motion = matchMedia('(prefers-reduced-motion: reduce)');
       this.events = new AbortController();
       const on = (target, type, handler, options = {}) => target.addEventListener(type, handler, { ...options, signal: this.events.signal });
       this.speed = Math.max(0, Number(this.dataset.speed) || 30);
-      this.userPaused = false;
-      this.control.setAttribute('aria-pressed', 'false');
-      this.control.setAttribute('aria-label', this.control.dataset.pauseLabel);
       this.focused = false;
       this.pointer = null;
       this.touching = false;
@@ -20,11 +16,6 @@ if (!customElements.get('pp-category-carousel')) {
       this.suppressClick = false;
       this.resumeAt = 0;
       on(this.motion, 'change', () => this.measure());
-      on(this.control, 'click', () => {
-        this.userPaused = !this.userPaused;
-        this.control.setAttribute('aria-pressed', String(this.userPaused));
-        this.control.setAttribute('aria-label', this.userPaused ? this.control.dataset.playLabel : this.control.dataset.pauseLabel);
-      });
       on(this.list, 'focusin', (event) => {
         this.focused = event.target.matches(':focus-visible');
       });
@@ -43,7 +34,7 @@ if (!customElements.get('pp-category-carousel')) {
       on(this.list, 'pointerdown', (event) => {
         if (event.button !== 0) return;
         this.suppressClick = false;
-        this.pointer = { id: event.pointerId, type: event.pointerType, x: event.clientX, scroll: this.list.scrollLeft, moved: false };
+        this.pointer = { id: event.pointerId, type: event.pointerType, started: performance.now(), x: event.clientX, scroll: this.list.scrollLeft, moved: false };
         this.delay();
       });
       on(window, 'pointermove', (event) => {
@@ -60,7 +51,8 @@ if (!customElements.get('pp-category-carousel')) {
       });
       const release = (event) => {
         if (!this.pointer || event.pointerId !== this.pointer.id) return;
-        this.suppressClick = this.pointer.moved;
+        // A held touch is a pause gesture; quick taps keep native link navigation.
+        this.suppressClick = this.pointer.moved || (this.pointer.type === 'touch' && performance.now() - this.pointer.started >= 400);
         if (this.list.hasPointerCapture(event.pointerId)) this.list.releasePointerCapture(event.pointerId);
         this.pointer = null;
         delete this.list.dataset.dragging;
@@ -113,8 +105,7 @@ if (!customElements.get('pp-category-carousel')) {
       const phase = this.period ? ((this.position - this.period) % this.period + this.period) % this.period / this.period : 0;
       this.clearCopies();
       this.width = this.list.clientWidth;
-      this.control.hidden = this.motion.matches || this.items.length < 2 || !this.width;
-      if (this.control.hidden) {
+      if (this.motion.matches || this.items.length < 2 || !this.width) {
         this.period = 0;
         this.list.scrollLeft = 0;
         return;
@@ -168,7 +159,7 @@ if (!customElements.get('pp-category-carousel')) {
     tick(time) {
       const elapsed = this.lastTime === null ? 0 : Math.min(time - this.lastTime, 50);
       this.lastTime = time;
-      if (this.visible && !document.hidden && !this.userPaused && !this.editorPaused && !this.focused && !this.pointer && !this.touching && time >= this.resumeAt) {
+      if (this.visible && !document.hidden && !this.editorPaused && !this.focused && !this.pointer && !this.touching && time >= this.resumeAt) {
         this.position += this.speed * elapsed / 1000;
         this.normalize();
       }
