@@ -150,7 +150,7 @@
   .pp-header .header__icon--cart { width: 44px; padding: 0; }
   .pp-header .header__icon--cart .pp-cart-label { display: none; }
 }
-.pp-header .header__heading-logo { width: 100%; height: auto; }
+.pp-header .header__heading-logo { display: block; width: auto; height: auto; margin-inline: auto; }
 
 /* Phase 3B: explicit desktop dimensions; mobile retains its compact layout. */
 @media (min-width: 990px) {
