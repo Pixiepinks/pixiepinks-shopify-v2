@@ -281,6 +281,36 @@
         "padding_bottom": 24
       }
     },
+    "pp_customer_love_7JBpPi": {
+      "type": "pp-customer-love",
+      "blocks": {
+        "review_crdMbU": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_04_56_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_crdMbU"
+      ],
+      "name": "PixiePinks Customer Love",
+      "settings": {
+        "background": "shopify://shop_images/ChatGPT_Image_Oct_9_2026_11_58_48_PM.png",
+        "heading": "Loved by Our Happy Customers",
+        "subtitle": "Real Messages • Real Customers • Real Happiness",
+        "auto": true,
+        "speed": 25,
+        "overlay": 20,
+        "padding": 40,
+        "card_width": 360,
+        "radius": 20
+      }
+    },
     "featured_collection_UFg7hX": {
       "type": "pp-featured-products",
       "name": "New Arrival ",
@@ -860,42 +890,13 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "pp_customer_love_7JBpPi": {
-      "type": "pp-customer-love",
-      "blocks": {
-        "review_crdMbU": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_04_56_AM.png",
-            "name": "",
-            "product": "",
-            "date": "",
-            "alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_crdMbU"
-      ],
-      "name": "PixiePinks Customer Love",
-      "settings": {
-        "background": "shopify://shop_images/ChatGPT_Image_Oct_9_2026_11_58_48_PM.png",
-        "heading": "Loved by Our Happy Customers",
-        "subtitle": "Real Messages • Real Customers • Real Happiness",
-        "auto": true,
-        "speed": 25,
-        "overlay": 20,
-        "padding": 40,
-        "card_width": 360,
-        "radius": 20
-      }
     }
   },
   "order": [
     "slideshow_3kKqaH",
     "pp_categories",
     "pp_promotions",
+    "pp_customer_love_7JBpPi",
     "featured_collection_UFg7hX",
     "pp_offers",
     "featured_collection_KAUTAf",
@@ -914,7 +915,6 @@
     "featured_collection_BE3AXM",
     "featured_collection_imNrwV",
     "featured_collection_nF7zmk",
-    "featured_collection_3JfRVw",
-    "pp_customer_love_7JBpPi"
+    "featured_collection_3JfRVw"
   ]
 }
