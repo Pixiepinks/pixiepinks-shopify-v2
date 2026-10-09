@@ -1,0 +1,19 @@
+/* Customer Love only: merchant screenshots are never cropped. */
+.pp-love { position: relative; isolation: isolate; padding-block: var(--pp-love-padding); background: #fff3f8; overflow: hidden; }
+.pp-love__background { position: absolute; inset: 0; z-index: -2; }
+.pp-love__background img { width: 100%; height: 100%; object-fit: cover; }
+.pp-love::before { content: ""; position: absolute; inset: 0; background: white; opacity: var(--pp-love-overlay); z-index: -1; }
+.pp-love__content { padding-inline: var(--pp-layout-gutter, 16px); }
+.pp-love__heading { margin: 0; text-align: center; color: #18213b; font-weight: 700; }
+.pp-love__subtitle { text-align: center; margin: 12px 0 24px; color: #6b4357; }
+pp-review-carousel { display: block; min-width: 0; }
+.pp-love__track { display: flex; align-items: center; gap: 20px; list-style: none; margin: 0; padding: 8px 0 16px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; cursor: grab; scroll-behavior: auto; }
+.pp-love__track[data-loop] { scrollbar-width: none; }
+.pp-love__track[data-loop]::-webkit-scrollbar { display: none; }
+.pp-love__track[data-dragging] { cursor: grabbing; user-select: none; }
+.pp-love__track:focus-visible { outline: 3px solid #ff087f; outline-offset: -3px; }
+.pp-love__card { flex: 0 0 var(--pp-review-width, var(--pp-love-width)); width: var(--pp-review-width, var(--pp-love-width)); min-width: 0; overflow: hidden; border-radius: var(--pp-love-radius); background: #fff; box-shadow: 0 4px 14px #64213a14; border: 1px solid #f6dce7; }
+.pp-love__card img { display: block; width: 100%; height: auto; max-height: 600px; object-fit: contain; background: white; }
+.pp-love__details { display: grid; gap: 4px; padding: 12px 16px; color: #18213b; overflow-wrap: anywhere; }
+.pp-love__empty { text-align: center; padding: 32px; border: 1px dashed #ed8bb8; }
+@media (max-width: 749px) { .pp-love__track { gap: 14px; } .pp-love__card { flex-basis: var(--pp-review-width, min(var(--pp-love-width), 82vw)); width: var(--pp-review-width, min(var(--pp-love-width), 82vw)); } }
