@@ -867,6 +867,7 @@
         "review_crdMbU": {
           "type": "review",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_04_56_AM.png",
             "name": "",
             "product": "",
             "date": "",
