@@ -254,6 +254,7 @@
           "type": "promotion",
           "settings": {
             "collection": "sweet-treats",
+            "image": "shopify://shop_images/swee.png",
             "image_alt": "",
             "heading": "",
             "text": "",
