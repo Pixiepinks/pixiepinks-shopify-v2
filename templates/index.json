@@ -226,7 +226,7 @@
             "link": "",
             "accent": "#e4f2ff",
             "show_button": true,
-            "button_horizontal": "center",
+            "button_horizontal": "left",
             "button_vertical": "bottom",
             "button_offset_x": 0,
             "button_offset_y": 0
