@@ -1,3 +1,4 @@
+{%- assign pp_logo = section.settings.v2_logo_image | default: settings.logo -%}
 {{ 'pp-header.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'pp-header.js' | asset_url }}" defer="defer"></script>
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -88,19 +89,20 @@
         <h1 class="header__heading">
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
+            {%- if pp_logo != blank -%}
               {%- assign pp_logo_width = section.settings.v2_logo_width | default: settings.logo_width -%}
               <div class="header__heading-logo-wrapper" style="width: {{ pp_logo_width }}px">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = pp_logo_width | divided_by: settings.logo.aspect_ratio -%}
+                {%- assign logo_alt = pp_logo.alt | default: shop.name | escape -%}
+                {%- assign logo_height = pp_logo_width | divided_by: pp_logo.aspect_ratio -%}
                 {% capture sizes %}(max-width: {{ pp_logo_width | times: 2 }}px) 50vw, {{ pp_logo_width }}px{% endcapture %}
                 {% capture widths %}{{ pp_logo_width }}, {{ pp_logo_width | times: 1.5 | round }}, {{ pp_logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
+                {{ pp_logo | image_url: width: 600 | image_tag:
                   class: 'header__heading-logo motion-reduce',
                   widths: widths,
                   height: logo_height,
                   width: pp_logo_width,
                   alt: logo_alt,
+                  loading: 'eager',
                   sizes: sizes,
                   preload: true
                 }}
@@ -345,8 +347,8 @@
     "@context": "http://schema.org",
     "@type": "Organization",
     "name": {{ shop.name | json }},
-    {% if settings.logo %}
-      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% if pp_logo %}
+      "logo": {{ pp_logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
     "sameAs": [
       {{ settings.social_twitter_link | json }},
@@ -389,6 +391,12 @@
     {
       "type": "header",
       "content": "PixiePinks V2"
+    },
+    {
+      "type": "image_picker",
+      "id": "v2_logo_image",
+      "label": "Header logo image",
+      "info": "Optional. Falls back to the logo in Theme settings when no image is selected."
     },
     {
       "type": "range",
