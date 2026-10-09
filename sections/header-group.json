@@ -63,6 +63,7 @@
     "header": {
       "type": "header",
       "settings": {
+        "v2_logo_image": "shopify://shop_images/ChatGPT_Image_Oct_9_2026_02_33_07_PM.png",
         "v2_logo_width": 340,
         "v2_sticky": true,
         "v2_show_search": true,
