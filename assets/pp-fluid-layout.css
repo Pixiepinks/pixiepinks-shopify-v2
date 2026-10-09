@@ -1,0 +1,98 @@
+/* Storefront gutters only: dialogs, app blocks and checkout keep their own sizing. */
+:root { --pp-layout-gutter: 12px; }
+@media (max-width: 360px) { :root { --pp-layout-gutter: 10px; } }
+@media (min-width: 768px) { :root { --pp-layout-gutter: 16px; } }
+@media (min-width: 1024px) { :root { --pp-layout-gutter: 20px; } }
+@media (min-width: 1440px) { :root { --pp-layout-gutter: 24px; } }
+
+.pp-fluid-layout :is(.pp-header, .pp-service) {
+  --pp-container: 100%;
+  --pp-space-gutter: var(--pp-layout-gutter);
+}
+.pp-fluid-layout .pp-header .pp-header__main,
+.pp-fluid-layout .pp-service .pp-service__inner { max-width: none; padding-inline: var(--pp-layout-gutter); }
+.pp-fluid-layout :is(.pp-home, .pp-home-products) {
+  --pp-home-width: 100%;
+  --pp-home-gutter: var(--pp-layout-gutter);
+}
+
+/* Native outer page containers; intentional narrow text and form wrappers are excluded. */
+.pp-fluid-layout #MainContent :is(
+  .shopify-section > .page-width:not(.page-width--narrow),
+  .shopify-section > .page-width-desktop,
+  .shopify-section > .page-width-tablet,
+  .collection-hero__inner.page-width,
+  .facets-vertical.page-width,
+  .facets-vertical-sort.page-width,
+  .facets-wrapper.page-width,
+  .collection.page-width,
+  .template-search__header.page-width,
+  .template-search__results.page-width,
+  .main-blog.page-width,
+  .related-products.page-width,
+  .blog.page-width,
+  cart-items.page-width,
+  #main-cart-footer.page-width,
+  [id^="MainProduct-"].page-width
+) { width: 100%; max-width: none; padding-inline: var(--pp-layout-gutter); }
+
+/* Nested empty-result wrappers already receive the vertical-facets gutter. */
+.pp-fluid-layout #MainContent .facets-vertical .collection--empty.page-width { padding-inline: 0; }
+.pp-fluid-layout #MainContent :is(
+  .shopify-section > .page-width--narrow,
+  .article-template > .page-width--narrow,
+  .article-template__comment-wrapper > .page-width--narrow,
+  .contact.page-width--narrow
+) {
+  /* Override only this readable wrapper, preserving the export's global app-compatible width rule. */
+  width: 100%; max-width: calc(72.6rem + 2 * var(--pp-layout-gutter)) !important;
+  padding-inline: var(--pp-layout-gutter);
+}
+.pp-fluid-layout #MainContent .article-template__hero-container {
+  max-width: none; margin-inline: var(--pp-layout-gutter);
+}
+.pp-fluid-layout .footer :is(.footer__content-top.page-width, .footer__content-bottom-wrapper.page-width) {
+  max-width: none; padding-inline: var(--pp-layout-gutter);
+}
+
+.pp-fluid-layout .pp-home-products .collection__title { padding-inline: var(--pp-layout-gutter); }
+
+/* One gutter per product row: native slider padding and first-item margins must not stack. */
+.pp-fluid-layout .pp-home-products slider-component { padding-inline: 0; }
+.pp-fluid-layout .pp-home-products .product-grid {
+  margin-inline: 0; padding-inline: var(--pp-layout-gutter);
+  scroll-padding-inline: var(--pp-layout-gutter);
+  scroll-padding-left: var(--pp-layout-gutter); scroll-padding-right: var(--pp-layout-gutter);
+}
+.pp-fluid-layout .pp-home-products .product-grid .slider__slide:first-child { margin-left: 0; }
+.pp-fluid-layout .pp-home-products .product-grid.slider::after { width: 0; padding: 0; flex-basis: 0; }
+@media (max-width: 749px) {
+  .pp-fluid-layout .pp-home-products .product-grid.slider--tablet.grid--peek.grid--2-col-tablet-down > .grid__item {
+    width: calc((100% - 10px - 24px) / 2);
+  }
+}
+@media (min-width: 1280px) {
+  .pp-fluid-layout .pp-home-products .product-grid.slider--desktop.grid--4-col-desktop > .grid__item {
+    width: calc((100% - 4 * 12px) / 5);
+  }
+}
+/* Expand dense four-column layouts on wide monitors without inflating product cards. */
+@media (min-width: 1680px) {
+  .pp-fluid-layout .pp-home-products .product-grid.slider--desktop.grid--4-col-desktop > .grid__item {
+    width: calc((100% - 5 * 12px) / 6);
+  }
+  .pp-fluid-layout #MainContent .pp-product-grid.grid--4-col-desktop:not(.slider--desktop) > .grid__item {
+    width: calc((100% - 5 * var(--grid-desktop-horizontal-spacing)) / 6);
+    max-width: calc((100% - 5 * var(--grid-desktop-horizontal-spacing)) / 6);
+  }
+}
+@media (max-width: 749px) {
+  /* Dawn's fixed 15/25px gallery breakout assumes wider mobile page gutters. */
+  .pp-fluid-layout #MainContent [id^="MainProduct-"] .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) { margin-inline: 0; }
+  .pp-fluid-layout #MainContent [id^="MainProduct-"] .product__media-list { width: 100%; margin-inline: 0; }
+  .pp-fluid-layout #MainContent [id^="MainProduct-"] .product__media-list .product__media-item { width: calc(100% - var(--grid-mobile-horizontal-spacing)); }
+  .pp-fluid-layout #MainContent [id^="MainProduct-"] .product__media-list .product__media-item:first-child { margin-left: 0; }
+  .pp-fluid-layout #MainContent [id^="MainProduct-"] .product__media-list .product__media-item:only-child { width: 100%; }
+  .pp-fluid-layout #MainContent [id^="MainProduct-"] .product--mobile-columns .product__media-item { width: calc((100% - var(--grid-mobile-horizontal-spacing)) / 2); }
+}
+.pp-fluid-layout .footer .footer__column--info { padding-inline: 0; }
