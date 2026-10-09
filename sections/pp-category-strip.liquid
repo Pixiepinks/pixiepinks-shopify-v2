@@ -1,11 +1,12 @@
 {{ 'pp-homepage.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pp-category-carousel.js' | asset_url }}" defer="defer"></script>
 {%- style -%}
   #shopify-section-{{ section.id }} { --pp-home-top: {{ section.settings.padding_top }}px; --pp-home-bottom: {{ section.settings.padding_bottom }}px; }
 {%- endstyle -%}
 {% if section.settings.enabled %}
-<div class="pp-home pp-home-categories">
+<pp-category-carousel class="pp-home pp-home-categories" data-speed="30">
   {% if section.settings.heading != blank %}<h2 class="pp-home-heading">{{ section.settings.heading | escape }}</h2>{% endif %}
-  <ul class="pp-category-strip" role="list" {% if section.settings.heading != blank %}aria-label="{{ section.settings.heading | escape }}"{% else %}aria-label="{{ 'pp_v2.all_categories' | t }}"{% endif %} tabindex="0">
+  <ul id="pp-categories-{{ section.id }}" class="pp-category-strip" role="list" {% if section.settings.heading != blank %}aria-label="{{ section.settings.heading | escape }}"{% else %}aria-label="{{ 'pp_v2.all_categories' | t }}"{% endif %} tabindex="0">
     {% for block in section.blocks %}
       {% liquid
         assign category = block.settings.collection
@@ -32,7 +33,10 @@
       {% endif %}
     {% endfor %}
   </ul>
-</div>
+  <button type="button" class="pp-category-control" hidden aria-controls="pp-categories-{{ section.id }}" aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}" data-pause-label="{{ 'sections.slideshow.pause_slideshow' | t }}" data-play-label="{{ 'sections.slideshow.play_slideshow' | t }}" aria-pressed="false">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path class="pp-category-control__pause" d="M8 5v14M16 5v14"/><path class="pp-category-control__play" d="m8 5 11 7-11 7Z"/></svg>
+  </button>
+</pp-category-carousel>
 {% endif %}
 
 {% schema %}
