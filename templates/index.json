@@ -284,6 +284,16 @@
     "pp_customer_love_7JBpPi": {
       "type": "pp-customer-love",
       "blocks": {
+        "review_97L66B": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_10_58_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
         "review_crdMbU": {
           "type": "review",
           "settings": {
@@ -296,6 +306,7 @@
         }
       },
       "block_order": [
+        "review_97L66B",
         "review_crdMbU"
       ],
       "name": "PixiePinks Customer Love",
