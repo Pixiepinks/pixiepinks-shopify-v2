@@ -716,35 +716,6 @@
         "padding_bottom": 0
       }
     },
-    "featured_collection_fCaXLQ": {
-      "type": "featured-collection",
-      "name": "Exercise Books",
-      "settings": {
-        "title": "Exercise Books",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "exercise-books",
-        "products_to_show": 25,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "featured_collection_aUnWnz": {
       "type": "featured-collection",
       "name": "Umbrella",
@@ -952,7 +923,6 @@
     "featured_collection_PqDVrW",
     "featured_collection_ndXNQB",
     "featured_collection_ad6RrY",
-    "featured_collection_fCaXLQ",
     "featured_collection_aUnWnz",
     "featured_collection_BE3AXM",
     "featured_collection_imNrwV",
