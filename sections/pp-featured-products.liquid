@@ -60,13 +60,13 @@
   endif
   # The offers panel has fewer visible cards than its full-width column setting.
   # Keep Dawn's existing slider active when the merchant has enabled it.
-  if section.id contains 'pp_offers' and section.settings.enable_desktop_slider and products_to_display > 1
+  if section.settings.desktop_layout == 'offers' and section.settings.enable_desktop_slider and products_to_display > 1
     assign show_desktop_slider = true
   endif
 -%}
 
 {% if section.settings.enabled and section.settings.collection != blank and selected_products.size > 0 %}
-<div class="pp-home-products{% if section.settings.offers_only %} pp-home-products--offers{% endif %} color-{{ section.settings.color_scheme }} isolate gradient">
+<div class="pp-home-products{% if section.settings.offers_only %} pp-home-products--offers{% endif %} color-{{ section.settings.color_scheme }} isolate gradient" data-desktop-layout="{{ section.settings.desktop_layout | default: 'full_width' }}">
   <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
       {%- if section.settings.title != blank -%}
@@ -174,6 +174,27 @@
       "id": "enabled",
       "label": "Show section",
       "default": true
+    },
+    {
+      "type": "select",
+      "id": "desktop_layout",
+      "label": "Desktop layout",
+      "default": "full_width",
+      "options": [
+        {
+          "value": "full_width",
+          "label": "Full width"
+        },
+        {
+          "value": "featured",
+          "label": "Featured products — left (60%)"
+        },
+        {
+          "value": "offers",
+          "label": "Special offers — right (40%)"
+        }
+      ],
+      "info": "For a paired row, place Featured products immediately before Special offers. Choose each role on just one section. Below 990px, the sections stack."
     },
     {
       "type": "checkbox",
