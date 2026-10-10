@@ -69,8 +69,19 @@
   endif
 -%}
 
+{% liquid
+  assign offers_background_active = false
+  if section.settings.desktop_layout != 'featured'
+    if section.settings.offers_only or section.settings.desktop_layout == 'offers'
+      if section.settings.offers_background_enabled and section.settings.offers_background != blank
+        assign offers_background_active = true
+        assign mobile_offers_background = section.settings.offers_mobile_background | default: section.settings.offers_background
+      endif
+    endif
+  endif
+%}
 {% if section.settings.enabled and section.settings.collection != blank and selected_products.size > 0 %}
-<div class="pp-home-products{% if section.settings.offers_only %} pp-home-products--offers{% endif %} color-{{ section.settings.color_scheme }} isolate gradient" data-desktop-layout="{{ section.settings.desktop_layout | default: 'full_width' }}">
+<div class="pp-home-products{% if section.settings.offers_only %} pp-home-products--offers{% endif %}{% if offers_background_active %} pp-home-products--offers-image{% endif %} color-{{ section.settings.color_scheme }} isolate gradient" data-desktop-layout="{{ section.settings.desktop_layout | default: 'full_width' }}"{% if offers_background_active %} style="--pp-offers-background: url('{{ section.settings.offers_background | image_url: width: 1600 | escape }}'); --pp-offers-mobile-background: url('{{ mobile_offers_background | image_url: width: 1000 | escape }}'); --pp-offers-overlay: {{ section.settings.offers_background_overlay | divided_by: 100.0 }}; --pp-offers-position: {{ section.settings.offers_background_position }};"{% endif %}>
   <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
       {%- if section.settings.title != blank -%}
@@ -472,6 +483,58 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Special Offers background"
+    },
+    {
+      "type": "checkbox",
+      "id": "offers_background_enabled",
+      "label": "Enable background image",
+      "default": true,
+      "info": "Applies only to Special Offers. With no desktop image selected, the existing background remains."
+    },
+    {
+      "type": "image_picker",
+      "id": "offers_background",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "offers_mobile_background",
+      "label": "Mobile background image",
+      "info": "Optional. Uses the desktop image when not selected."
+    },
+    {
+      "type": "range",
+      "id": "offers_background_overlay",
+      "label": "Background overlay opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "default": 15,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "offers_background_position",
+      "label": "Background image position",
+      "default": "center",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ]
     }
   ],
   "presets": [

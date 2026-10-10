@@ -215,3 +215,16 @@ pp-category-carousel.pp-home { display: block; }
 @media (prefers-reduced-motion: reduce) {
   :is(.pp-home, .pp-home-products, .pp-home-hero) * { scroll-behavior: auto; transition: none; animation: none; }
 }
+
+/* Optional decorative artwork for Offers only; product cards keep opaque white backgrounds. */
+.pp-home-products--offers-image {
+  background-image: linear-gradient(rgb(255 255 255 / var(--pp-offers-overlay)), rgb(255 255 255 / var(--pp-offers-overlay))), var(--pp-offers-background);
+  background-size: cover;
+  background-position: center var(--pp-offers-position, center);
+  background-repeat: no-repeat;
+}
+@media (max-width: 749px) {
+  .pp-home-products--offers-image {
+    background-image: linear-gradient(rgb(255 255 255 / var(--pp-offers-overlay)), rgb(255 255 255 / var(--pp-offers-overlay))), var(--pp-offers-mobile-background);
+  }
+}
