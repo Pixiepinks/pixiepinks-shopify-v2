@@ -1,4 +1,5 @@
 {{ 'pp-homepage.css' | asset_url | stylesheet_tag }}
+{{ 'pp-product-pair.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'pp-product-card.css' | asset_url | stylesheet_tag }}
@@ -55,6 +56,11 @@
 
   assign show_desktop_slider = false
   if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
+    assign show_desktop_slider = true
+  endif
+  # The offers panel has fewer visible cards than its full-width column setting.
+  # Keep Dawn's existing slider active when the merchant has enabled it.
+  if section.id contains 'pp_offers' and section.settings.enable_desktop_slider and products_to_display > 1
     assign show_desktop_slider = true
   endif
 -%}
