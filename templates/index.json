@@ -359,7 +359,7 @@
       "name": "PixiePinks featured products",
       "settings": {
         "enabled": true,
-        "offers_only": true,
+        "offers_only": false,
         "title": "Featured Products",
         "heading_size": "h1",
         "description": "",
