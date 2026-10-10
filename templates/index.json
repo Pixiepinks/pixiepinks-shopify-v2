@@ -383,7 +383,10 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "offers_background_enabled": true,
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
       }
     },
     "featured_collection_KAUTAf": {
@@ -934,7 +937,10 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 24,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "offers_background_enabled": true,
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
       }
     },
     "pp_featured_products_UFjpaW": {
@@ -966,7 +972,11 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 24,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "offers_background_enabled": true,
+        "offers_background": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_01_01_36_PM.png",
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
       }
     }
   },
