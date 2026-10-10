@@ -32,6 +32,10 @@
 {%- endstyle -%}
 
 {%- liquid
+  assign pp_compact_cards = false
+  if section.settings.desktop_layout == 'featured' or section.settings.desktop_layout == 'offers'
+    assign pp_compact_cards = true
+  endif
   assign selected_products = section.settings.collection.products
   if section.settings.offers_only
     assign selected_products = '' | split: ','
@@ -109,6 +113,7 @@
           >
             {% render 'card-product',
               pp_premium: true,
+              pp_compact: pp_compact_cards,
               card_product: product,
               media_aspect_ratio: section.settings.image_ratio,
               image_shape: section.settings.image_shape,
