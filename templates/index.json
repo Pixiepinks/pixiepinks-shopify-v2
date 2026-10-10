@@ -366,7 +366,7 @@
         "show_description": true,
         "description_style": "body",
         "collection": "featured-collection",
-        "products_to_show": 25,
+        "products_to_show": 6,
         "columns_desktop": 5,
         "full_width": false,
         "show_view_all": true,
