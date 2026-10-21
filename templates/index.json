@@ -15,6 +15,25 @@
         "slide_Ar8U7U": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Hero_3.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_37_03_AM.png",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/bicycle",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_eQWR3i": {
+          "type": "slide",
+          "settings": {
             "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_31_01_AM.png",
             "mobile_image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_37_03_AM.png",
             "heading": "",
@@ -53,6 +72,7 @@
       },
       "block_order": [
         "slide_Ar8U7U",
+        "slide_eQWR3i",
         "slide_FNaCRz"
       ],
       "settings": {
@@ -352,6 +372,41 @@
         "padding": 40,
         "card_width": 360,
         "radius": 20
+      }
+    },
+    "pp_featured_products_KKaqgb": {
+      "type": "pp-featured-products",
+      "name": "PixiePinks featured products",
+      "settings": {
+        "enabled": true,
+        "desktop_layout": "featured",
+        "offers_only": false,
+        "title": "Featured Products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "featured-collection",
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "offers_background_enabled": true,
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
       }
     },
     "pp_featured_products_UFjpaW": {
@@ -942,41 +997,6 @@
         "swipe_on_mobile": true,
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "pp_featured_products_KKaqgb": {
-      "type": "pp-featured-products",
-      "name": "PixiePinks featured products",
-      "settings": {
-        "enabled": true,
-        "desktop_layout": "featured",
-        "offers_only": false,
-        "title": "Featured Products",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "featured-collection",
-        "products_to_show": 5,
-        "columns_desktop": 5,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "offers_background_enabled": true,
-        "offers_background_overlay": 15,
-        "offers_background_position": "center"
       }
     }
   },
