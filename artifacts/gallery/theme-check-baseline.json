@@ -1,0 +1,288 @@
+{
+  "valid": false,
+  "issues": [
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-label-style-css.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-label-fonts.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-label-js.liquid",
+      "check": "ParserBlockingScript",
+      "severity": "error",
+      "startRow": 2,
+      "startColumn": 72,
+      "endRow": 2,
+      "endColumn": 82,
+      "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-label-js.liquid",
+      "check": "ParserBlockingScript",
+      "severity": "error",
+      "startRow": 3,
+      "startColumn": 76,
+      "endRow": 3,
+      "endColumn": 86,
+      "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-label-js.liquid",
+      "check": "ParserBlockingScript",
+      "severity": "error",
+      "startRow": 4,
+      "startColumn": 75,
+      "endRow": 4,
+      "endColumn": 85,
+      "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-label-js.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 2,
+      "endColumn": 1,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-labels-configs.liquid",
+      "check": "ParserBlockingScript",
+      "severity": "error",
+      "startRow": 1,
+      "startColumn": 43,
+      "endRow": 1,
+      "endColumn": 53,
+      "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-labels-configs.liquid",
+      "check": "ParserBlockingScript",
+      "severity": "error",
+      "startRow": 1,
+      "startColumn": 106,
+      "endRow": 1,
+      "endColumn": 116,
+      "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-labels-configs.liquid",
+      "check": "ParserBlockingScript",
+      "severity": "error",
+      "startRow": 1,
+      "startColumn": 167,
+      "endRow": 1,
+      "endColumn": 177,
+      "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/bss-product-labels-configs.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/header-drawer.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/header-dropdown-menu.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/header-mega-menu.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/rev-widget.liquid",
+      "check": "OrphanedSnippet",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 1,
+      "endRow": 1,
+      "endColumn": 2,
+      "message": "This snippet is not referenced by any other files"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/templates/search.bss.product.labels.liquid",
+      "check": "PaginationSize",
+      "severity": "warning",
+      "startRow": 1,
+      "startColumn": 48,
+      "endRow": 1,
+      "endColumn": 52,
+      "message": "Pagination size must be a positive integer between 1 and 250."
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/sections/main-list-collections.liquid",
+      "check": "VariableName",
+      "severity": "warning",
+      "startRow": 20,
+      "startColumn": 12,
+      "endRow": 20,
+      "endColumn": 72,
+      "message": "The variable 'moduloResult' uses wrong naming format"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/layout/password.liquid",
+      "check": "AssetPreload",
+      "severity": "warning",
+      "startRow": 178,
+      "startColumn": 7,
+      "endRow": 178,
+      "endColumn": 115,
+      "message": "For better performance, prefer using the preload_tag filter"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/layout/password.liquid",
+      "check": "AssetPreload",
+      "severity": "warning",
+      "startRow": 181,
+      "startColumn": 7,
+      "endRow": 181,
+      "endColumn": 117,
+      "message": "For better performance, prefer using the preload_tag filter"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/layout/password.liquid",
+      "check": "UndefinedObject",
+      "severity": "warning",
+      "startRow": 40,
+      "startColumn": 36,
+      "endRow": 40,
+      "endColumn": 50,
+      "message": "Unknown object 'scheme_classes' used."
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/layout/theme.liquid",
+      "check": "AssetPreload",
+      "severity": "warning",
+      "startRow": 245,
+      "startColumn": 7,
+      "endRow": 245,
+      "endColumn": 115,
+      "message": "For better performance, prefer using the preload_tag filter"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/layout/theme.liquid",
+      "check": "AssetPreload",
+      "severity": "warning",
+      "startRow": 248,
+      "startColumn": 7,
+      "endRow": 248,
+      "endColumn": 117,
+      "message": "For better performance, prefer using the preload_tag filter"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/layout/theme.liquid",
+      "check": "UndefinedObject",
+      "severity": "warning",
+      "startRow": 54,
+      "startColumn": 36,
+      "endRow": 54,
+      "endColumn": 50,
+      "message": "Unknown object 'scheme_classes' used."
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/templates/gift_card.liquid",
+      "check": "AssetPreload",
+      "severity": "warning",
+      "startRow": 95,
+      "startColumn": 7,
+      "endRow": 95,
+      "endColumn": 115,
+      "message": "For better performance, prefer using the preload_tag filter"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/templates/gift_card.liquid",
+      "check": "AssetPreload",
+      "severity": "warning",
+      "startRow": 98,
+      "startColumn": 7,
+      "endRow": 98,
+      "endColumn": 117,
+      "message": "For better performance, prefer using the preload_tag filter"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/sections/main-article.liquid",
+      "check": "VariableName",
+      "severity": "warning",
+      "startRow": 101,
+      "startColumn": 22,
+      "endRow": 101,
+      "endColumn": 67,
+      "message": "The variable 'anchorId' uses wrong naming format"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/sections/main-search.liquid",
+      "check": "UnusedAssign",
+      "severity": "warning",
+      "startRow": 228,
+      "startColumn": 25,
+      "endRow": 228,
+      "endColumn": 57,
+      "message": "The variable 'product_settings' is assigned but not used"
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/snippets/facets.liquid",
+      "check": "LiquidComplexity",
+      "severity": "warning",
+      "startRow": 865,
+      "startColumn": 15,
+      "endRow": 865,
+      "endColumn": 40,
+      "message": "Liquid complexity is 157, which exceeds the maximum of 120. The decision at line 865 pushed it over the limit. Consider simplifying conditional logic, or moving self-contained decision logic into snippets with the render tag."
+    },
+    {
+      "filePath": "/tmp/pixiepinks-v2-base/sections/main-product.liquid",
+      "check": "UndefinedObject",
+      "severity": "warning",
+      "startRow": 490,
+      "startColumn": 125,
+      "endRow": 490,
+      "endColumn": 133,
+      "message": "Unknown object 'continue' used."
+    }
+  ],
+  "errorCount": 6,
+  "warningCount": 22,
+  "infoCount": 0
+}

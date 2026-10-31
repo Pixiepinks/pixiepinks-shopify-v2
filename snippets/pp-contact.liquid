@@ -1,0 +1,7 @@
+{% assign pp_contact_settings = contact_source | default: section.settings %}
+{% if pp_contact_settings.v2_contact_enabled and pp_contact_settings.v2_contact_url != blank %}
+  <a class="pp-contact {{ contact_class }}" href="{{ pp_contact_settings.v2_contact_url }}">
+    {% if contact_class == 'pp-contact--service' %}{% render 'pp-icon', icon: 'phone' %}{% else %}{% render 'pp-icon', icon: 'chat' %}{% endif %}
+    <span><strong>{{ pp_contact_settings.v2_contact_label | default: 'Contact' | escape }}</strong>{% if pp_contact_settings.v2_contact_caption != blank %}<small>{{ pp_contact_settings.v2_contact_caption | escape }}</small>{% endif %}</span>
+  </a>
+{% endif %}

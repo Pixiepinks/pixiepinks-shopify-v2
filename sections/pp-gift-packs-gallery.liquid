@@ -1,0 +1,104 @@
+{%- if section.settings.enabled -%}
+  {{ 'pp-gift-packs-gallery.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'pp-gift-packs-gallery.js' | asset_url }}" defer="defer"></script>
+  <section
+    id="PPGift-{{ section.id }}"
+    class="pp-gift"
+    aria-labelledby="PPGiftHeading-{{ section.id }}"
+    style="--pp-space-top: {{ section.settings.padding_top }}px; --pp-space-bottom: {{ section.settings.padding_bottom }}px; --pp-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
+  >
+    <div class="pp-gift__inner">
+      <header class="pp-gift__hero{% if section.settings.title_desktop != blank or section.settings.title_mobile != blank %} pp-gift__hero--image{% endif %}{% if section.settings.title_mobile != blank %} pp-gift__hero--mobile-image{% endif %}">
+        {%- assign title_image = section.settings.title_desktop | default: section.settings.title_mobile -%}
+        {%- if title_image != blank -%}
+          <picture class="pp-gift__hero-art" aria-hidden="true">
+            {%- if section.settings.title_mobile != blank -%}
+              <source media="(max-width: 749px)" srcset="{{ section.settings.title_mobile | image_url: width: 540 }} 540w, {{ section.settings.title_mobile | image_url: width: 1080 }} 1080w" sizes="100vw">
+            {%- endif -%}
+            {{ title_image | image_url: width: 1920 | image_tag: widths: '640, 960, 1440, 1920', sizes: '(min-width: 1440px) 1360px, 100vw', loading: 'lazy', alt: '' }}
+          </picture>
+        {%- endif -%}
+        <span class="pp-gift__spark pp-gift__spark--one" aria-hidden="true">✦</span>
+        <span class="pp-gift__spark pp-gift__spark--two" aria-hidden="true">♡</span>
+        <span class="pp-gift__spark pp-gift__spark--three" aria-hidden="true">✧</span>
+        <div class="pp-gift__hero-copy">
+          <span class="pp-gift__eyebrow">{{ section.settings.eyebrow | escape }}</span>
+          <h2 id="PPGiftHeading-{{ section.id }}" class="pp-gift__heading">{{ section.settings.heading | escape }}</h2>
+          {%- if section.settings.subtitle != blank -%}<p class="pp-gift__subtitle">{{ section.settings.subtitle | escape }}</p>{%- endif -%}
+        </div>
+      </header>
+      <div class="pp-gift__panels">
+        {%- if section.settings.boys_enabled -%}
+          {% render 'pp-gift-panel', section: section, group: 'boys' %}
+        {%- endif -%}
+        {%- if section.settings.girls_enabled -%}
+          {% render 'pp-gift-panel', section: section, group: 'girls' %}
+        {%- endif -%}
+      </div>
+      {%- if section.settings.show_benefits -%}
+        <ul class="pp-gift__benefits" role="list">
+          <li><span aria-hidden="true">{% render 'pp-gift-icon', icon: 'gift' %}</span>{{ section.settings.benefit_curated | escape }}</li>
+          <li><span aria-hidden="true">{% render 'pp-gift-icon', icon: 'quality' %}</span>{{ section.settings.benefit_quality | escape }}</li>
+          <li><span aria-hidden="true">{% render 'pp-gift-icon', icon: 'heart' %}</span>{{ section.settings.benefit_occasion | escape }}</li>
+          <li><span aria-hidden="true">{% render 'pp-gift-icon', icon: 'delivery' %}</span>{{ section.settings.benefit_delivery | escape }}</li>
+        </ul>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Gift Packs Gallery",
+  "tag": "div",
+  "class": "pp-gift-section",
+  "enabled_on": { "templates": ["index"] },
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Enable gallery", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A little magic. A lot of joy." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Gift Packs Gallery" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Perfect Gifts for Every Special Moment" },
+    { "type": "image_picker", "id": "title_desktop", "label": "Desktop title background", "info": "Recommended: 1920 × 500 px. Background artwork only; the heading stays editable." },
+    { "type": "image_picker", "id": "title_mobile", "label": "Mobile title background", "info": "Recommended: 1080 × 1350 px. Keep the centre clear for the heading." },
+    { "type": "range", "id": "overlay_opacity", "label": "Cream background overlay", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 30 },
+    { "type": "range", "id": "padding_top", "label": "Top spacing", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom spacing", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 40 },
+    { "type": "header", "content": "Boys gallery" },
+    { "type": "checkbox", "id": "boys_enabled", "label": "Enable Boys gallery", "default": true },
+    { "type": "collection", "id": "boys_collection", "label": "Boys collection" },
+    { "type": "image_picker", "id": "boys_background", "label": "Boys background", "info": "Recommended: 1080 × 1350 px. Do not include products, prices or codes." },
+    { "type": "text", "id": "boys_heading", "label": "Boys heading", "default": "Boys Gift Packs" },
+    { "type": "text", "id": "boys_subtitle", "label": "Boys subtitle", "default": "Fun • Adventure • Learning • More" },
+    { "type": "range", "id": "boys_limit", "label": "Boys product count", "min": 1, "max": 16, "step": 1, "default": 8 },
+    { "type": "checkbox", "id": "boys_autoplay", "label": "Boys autoplay", "default": true },
+    { "type": "range", "id": "boys_interval", "label": "Boys autoplay interval", "min": 3, "max": 12, "step": 1, "unit": "s", "default": 5 },
+    { "type": "text", "id": "boys_button", "label": "Boys button text", "default": "Explore Boys Gift Packs" },
+    { "type": "header", "content": "Girls gallery" },
+    { "type": "checkbox", "id": "girls_enabled", "label": "Enable Girls gallery", "default": true },
+    { "type": "collection", "id": "girls_collection", "label": "Girls collection" },
+    { "type": "image_picker", "id": "girls_background", "label": "Girls background", "info": "Recommended: 1080 × 1350 px. Do not include products, prices or codes." },
+    { "type": "text", "id": "girls_heading", "label": "Girls heading", "default": "Girls Gift Packs" },
+    { "type": "text", "id": "girls_subtitle", "label": "Girls subtitle", "default": "Princess • Fashion • Creative • More" },
+    { "type": "range", "id": "girls_limit", "label": "Girls product count", "min": 1, "max": 16, "step": 1, "default": 8 },
+    { "type": "checkbox", "id": "girls_autoplay", "label": "Girls autoplay", "default": true },
+    { "type": "range", "id": "girls_interval", "label": "Girls autoplay interval", "min": 3, "max": 12, "step": 1, "unit": "s", "default": 6 },
+    { "type": "text", "id": "girls_button", "label": "Girls button text", "default": "Explore Girls Gift Packs" },
+    { "type": "header", "content": "Labels and accessibility" },
+    { "type": "text", "id": "code_label", "label": "Gift pack code label", "default": "Gift pack code" },
+    { "type": "text", "id": "empty_text", "label": "Empty collection message", "default": "A little magic is on its way. Check back soon for gift packs." },
+    { "type": "text", "id": "missing_image", "label": "Missing image label", "default": "Product image coming soon" },
+    { "type": "text", "id": "previous_label", "label": "Previous button label", "default": "Previous gift packs" },
+    { "type": "text", "id": "next_label", "label": "Next button label", "default": "Next gift packs" },
+    { "type": "text", "id": "pause_label", "label": "Pause button label", "default": "Pause automatic sliding" },
+    { "type": "text", "id": "play_label", "label": "Play button label", "default": "Start automatic sliding" },
+    { "type": "text", "id": "page_label", "label": "Pagination label", "default": "Go to gallery position" },
+    { "type": "header", "content": "Benefits strip" },
+    { "type": "checkbox", "id": "show_benefits", "label": "Show benefits", "default": true },
+    { "type": "text", "id": "benefit_curated", "label": "Benefit 1", "default": "Curated Gift Packs" },
+    { "type": "text", "id": "benefit_quality", "label": "Benefit 2", "default": "High Quality Products" },
+    { "type": "text", "id": "benefit_occasion", "label": "Benefit 3", "default": "Perfect for Every Occasion" },
+    { "type": "text", "id": "benefit_delivery", "label": "Benefit 4", "default": "Islandwide Delivery" }
+  ],
+  "presets": [{ "name": "Gift Packs Gallery" }]
+}
+{% endschema %}

@@ -1,0 +1,1029 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_3kKqaH": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_Ar8U7U": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Hero_3.png",
+            "mobile_image": "shopify://shop_images/Hero_3_M.png",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/bicycle",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_eQWR3i": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_31_01_AM.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_11_37_03_AM.png",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/bicycle",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_FNaCRz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_02_35_53_PM.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_03_01_08_PM.png",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/bicycle",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Ar8U7U",
+        "slide_eQWR3i",
+        "slide_FNaCRz"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "pp_categories": {
+      "type": "pp-category-strip",
+      "blocks": {
+        "category_1": {
+          "type": "category",
+          "settings": {
+            "collection": "bicycle",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_03_21_19_PM.png",
+            "label": "",
+            "link": "",
+            "accent": "#def2ff"
+          }
+        },
+        "category_2": {
+          "type": "category",
+          "settings": {
+            "collection": "gift-packs",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_39_38_PM.png",
+            "label": "",
+            "link": "",
+            "accent": "#ffe8df"
+          }
+        },
+        "category_3": {
+          "type": "category",
+          "settings": {
+            "collection": "sweet-treats",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_42_18_PM.png",
+            "label": "",
+            "link": "",
+            "accent": "#fce3f0"
+          }
+        },
+        "category_4": {
+          "type": "category",
+          "settings": {
+            "collection": "scooters",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_44_50_PM.png",
+            "label": "",
+            "link": "",
+            "accent": "#e9e3ff"
+          }
+        },
+        "category_5": {
+          "type": "category",
+          "settings": {
+            "collection": "spider-man",
+            "image": "shopify://shop_images/Spider_Man.png",
+            "label": "",
+            "link": "",
+            "accent": "#dbf4e7"
+          }
+        },
+        "category_6": {
+          "type": "category",
+          "settings": {
+            "collection": "tricycle",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_05_58_27_PM_1.png",
+            "label": "",
+            "link": "",
+            "accent": "#fff0d4"
+          }
+        },
+        "category_7": {
+          "type": "category",
+          "settings": {
+            "collection": "toy-vehicles",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_06_00_37_PM.png",
+            "label": "",
+            "link": "",
+            "accent": "#def2ff"
+          }
+        },
+        "category_8": {
+          "type": "category",
+          "settings": {
+            "collection": "school-bags-back-packs",
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_8_2026_06_18_39_PM.png",
+            "label": "",
+            "link": "",
+            "accent": "#ffe8df"
+          }
+        },
+        "category_9": {
+          "type": "category",
+          "settings": {
+            "collection": "water-bottle",
+            "image": "shopify://shop_images/Pink_Water_Bottle.png",
+            "label": "",
+            "link": "",
+            "accent": "#fce3f0"
+          }
+        },
+        "category_10": {
+          "type": "category",
+          "settings": {
+            "collection": "meal-boxes",
+            "image": "shopify://shop_images/Pink_Meal_box.png",
+            "label": "",
+            "link": "",
+            "accent": "#e9e3ff"
+          }
+        },
+        "category_11": {
+          "type": "category",
+          "settings": {
+            "collection": "coloring-materials",
+            "image": "shopify://shop_images/Coloring_Matterial.png",
+            "label": "",
+            "link": "",
+            "accent": "#dbf4e7"
+          }
+        },
+        "category_12": {
+          "type": "category",
+          "settings": {
+            "collection": "other",
+            "image": "shopify://shop_images/statinery.png",
+            "label": "",
+            "link": "",
+            "accent": "#fff0d4"
+          }
+        }
+      },
+      "block_order": [
+        "category_1",
+        "category_2",
+        "category_3",
+        "category_4",
+        "category_5",
+        "category_6",
+        "category_7",
+        "category_8",
+        "category_9",
+        "category_10",
+        "category_11",
+        "category_12"
+      ],
+      "settings": {
+        "heading": "",
+        "enabled": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "pp_promotions": {
+      "type": "pp-promo-cards",
+      "blocks": {
+        "promotion_1": {
+          "type": "promotion",
+          "settings": {
+            "collection": "gift-packs",
+            "image": "shopify://shop_images/D.png",
+            "image_alt": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "accent": "#e4f2ff",
+            "show_button": true,
+            "button_horizontal": "left",
+            "button_vertical": "bottom",
+            "button_offset_x": 0,
+            "button_offset_y": 0
+          }
+        },
+        "promotion_2": {
+          "type": "promotion",
+          "settings": {
+            "collection": "bicycle",
+            "image": "shopify://shop_images/Bi.png",
+            "image_alt": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "accent": "#fff0f4",
+            "show_button": true,
+            "button_horizontal": "left",
+            "button_vertical": "bottom",
+            "button_offset_x": 0,
+            "button_offset_y": 0
+          }
+        },
+        "promotion_3": {
+          "type": "promotion",
+          "settings": {
+            "collection": "sweet-treats",
+            "image": "shopify://shop_images/swee.png",
+            "image_alt": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "link": "",
+            "accent": "#eee5ff",
+            "show_button": true,
+            "button_horizontal": "left",
+            "button_vertical": "bottom",
+            "button_offset_x": 0,
+            "button_offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "promotion_1",
+        "promotion_2",
+        "promotion_3"
+      ],
+      "settings": {
+        "heading": "",
+        "enabled": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "pp_customer_love_7JBpPi": {
+      "type": "pp-customer-love",
+      "blocks": {
+        "review_MJpMhj": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_23_52_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
+        "review_WMjwfE": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_17_07_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
+        "review_RewFzb": {
+          "type": "review",
+          "settings": {
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
+        "review_97L66B": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_10_58_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        },
+        "review_crdMbU": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_12_04_56_AM.png",
+            "name": "",
+            "product": "",
+            "date": "",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_MJpMhj",
+        "review_WMjwfE",
+        "review_RewFzb",
+        "review_97L66B",
+        "review_crdMbU"
+      ],
+      "name": "PixiePinks Customer Love",
+      "settings": {
+        "background": "shopify://shop_images/ChatGPT_Image_Oct_9_2026_11_58_48_PM.png",
+        "heading": "Loved by Our Happy Customers",
+        "subtitle": "Real Messages • Real Customers • Real Happiness",
+        "auto": true,
+        "speed": 25,
+        "overlay": 20,
+        "padding": 40,
+        "card_width": 360,
+        "radius": 20
+      }
+    },
+    "pp_featured_products_KKaqgb": {
+      "type": "pp-featured-products",
+      "name": "PixiePinks featured products",
+      "settings": {
+        "enabled": true,
+        "desktop_layout": "featured",
+        "offers_only": false,
+        "title": "Featured Products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "featured-collection",
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "offers_background_enabled": true,
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
+      }
+    },
+    "pp_featured_products_UFjpaW": {
+      "type": "pp-featured-products",
+      "name": "PixiePinks special offers",
+      "settings": {
+        "enabled": true,
+        "desktop_layout": "offers",
+        "offers_only": true,
+        "title": "Today's Special Offers",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bicycle",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "offers_background_enabled": true,
+        "offers_background": "shopify://shop_images/ChatGPT_Image_Oct_10_2026_01_01_36_PM.png",
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
+      }
+    },
+    "featured_collection_UFg7hX": {
+      "type": "pp-featured-products",
+      "name": "New Arrival ",
+      "settings": {
+        "enabled": true,
+        "desktop_layout": "full_width",
+        "offers_only": false,
+        "title": "New Arrivals",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "new-arrival",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "offers_background_enabled": true,
+        "offers_background_overlay": 15,
+        "offers_background_position": "center"
+      }
+    },
+    "featured_collection_KAUTAf": {
+      "type": "featured-collection",
+      "name": "Bicycles",
+      "settings": {
+        "title": "Bicycles",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bicycle",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_f3y6F6": {
+      "type": "featured-collection",
+      "name": "Gift Packs",
+      "settings": {
+        "title": "Gift Packs",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "gift-packs",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_wC9XFJ": {
+      "type": "featured-collection",
+      "name": "Chocolate",
+      "settings": {
+        "title": "Chocolate",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "sweet-treats",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_ndXNQB": {
+      "type": "featured-collection",
+      "name": "Electric Cars",
+      "settings": {
+        "title": "Electric Cars",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "electric-cars",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_j97QRB": {
+      "type": "featured-collection",
+      "name": "Scooters",
+      "settings": {
+        "title": "Scooters",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "scooters",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_rMzdEn": {
+      "type": "featured-collection",
+      "name": "Spiderman Theme",
+      "settings": {
+        "title": "Spiderman Theme",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "spider-man",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_qnRwEg": {
+      "type": "featured-collection",
+      "name": "Tricycles",
+      "settings": {
+        "title": "Tricycles",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "tricycle",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_MwFaH6": {
+      "type": "featured-collection",
+      "name": "Toy Wheelers",
+      "settings": {
+        "title": "Toy Wheelers",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "toy-vehicles",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_ckq7q3": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_L8FrUf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "school-bags-back-packs"
+          }
+        },
+        "featured_collection_67t9b9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "water-bottle"
+          }
+        },
+        "featured_collection_fyg9rw": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "meal-boxes"
+          }
+        },
+        "featured_collection_pj3njC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "coloring-materials"
+          }
+        },
+        "featured_collection_DrU87R": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "other"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_L8FrUf",
+        "featured_collection_67t9b9",
+        "featured_collection_fyg9rw",
+        "featured_collection_pj3njC",
+        "featured_collection_DrU87R"
+      ],
+      "name": "School Supplies",
+      "settings": {
+        "title": "School Supplies",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_FttjqT": {
+      "type": "featured-collection",
+      "name": "Baby Care",
+      "settings": {
+        "title": "Baby Care",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "baby-care",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_PqDVrW": {
+      "type": "featured-collection",
+      "name": "Soft Toys",
+      "settings": {
+        "title": "Soft Toys",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "soft-toys",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_ad6RrY": {
+      "type": "featured-collection",
+      "name": "Kids Clothing",
+      "settings": {
+        "title": "Kids Clothing",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "kids-t-shirts",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_aUnWnz": {
+      "type": "featured-collection",
+      "name": "Umbrella",
+      "settings": {
+        "title": "Umbrella",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "umbrella",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_BE3AXM": {
+      "type": "featured-collection",
+      "name": "Decorative Pens",
+      "settings": {
+        "title": "Decorative Pens",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "pens-pencils",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_imNrwV": {
+      "type": "featured-collection",
+      "name": "Hair Acccessories",
+      "settings": {
+        "title": "Hair Acccessories",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "hair-accessories",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_nF7zmk": {
+      "type": "featured-collection",
+      "name": "Kids Caps",
+      "settings": {
+        "title": "Kids Caps",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "kids-cap",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_3JfRVw": {
+      "type": "featured-collection",
+      "name": "Framed Photo Gifts",
+      "settings": {
+        "title": "Framed Photo Gifts",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "framed-photos",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "slideshow_3kKqaH",
+    "pp_categories",
+    "pp_promotions",
+    "pp_customer_love_7JBpPi",
+    "pp_featured_products_KKaqgb",
+    "pp_featured_products_UFjpaW",
+    "featured_collection_UFg7hX",
+    "featured_collection_KAUTAf",
+    "featured_collection_ndXNQB",
+    "featured_collection_f3y6F6",
+    "featured_collection_wC9XFJ",
+    "featured_collection_j97QRB",
+    "featured_collection_rMzdEn",
+    "featured_collection_qnRwEg",
+    "featured_collection_MwFaH6",
+    "collection_list_ckq7q3",
+    "featured_collection_FttjqT",
+    "featured_collection_PqDVrW",
+    "featured_collection_ad6RrY",
+    "featured_collection_aUnWnz",
+    "featured_collection_BE3AXM",
+    "featured_collection_imNrwV",
+    "featured_collection_nF7zmk",
+    "featured_collection_3JfRVw"
+  ]
+}

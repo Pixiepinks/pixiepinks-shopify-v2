@@ -1,0 +1,63 @@
+{% comment %}Independent gallery. All product content comes from the selected collection.{% endcomment %}
+{%- liquid
+  assign collection_key = group | append: '_collection'
+  assign background_key = group | append: '_background'
+  assign heading_key = group | append: '_heading'
+  assign subtitle_key = group | append: '_subtitle'
+  assign limit_key = group | append: '_limit'
+  assign autoplay_key = group | append: '_autoplay'
+  assign interval_key = group | append: '_interval'
+  assign button_key = group | append: '_button'
+  assign gift_collection = section.settings[collection_key]
+  assign background = section.settings[background_key]
+  assign gallery_id = 'PPGift-' | append: section.id | append: '-' | append: group
+-%}
+<pp-gift-carousel
+  class="pp-gift__panel pp-gift__panel--{{ group }}"
+  role="region"
+  aria-labelledby="{{ gallery_id }}-heading"
+  data-autoplay="{{ section.settings[autoplay_key] }}"
+  data-interval="{{ section.settings[interval_key] | times: 1000 }}"
+  data-pause-label="{{ section.settings.pause_label | escape }}"
+  data-play-label="{{ section.settings.play_label | escape }}"
+  data-page-label="{{ section.settings.page_label | escape }}"
+>
+  {%- if background != blank -%}
+    <div class="pp-gift__panel-art" aria-hidden="true">
+      {{ background | image_url: width: 1080 | image_tag: widths: '360, 540, 750, 1080', sizes: '(min-width: 990px) 48vw, 100vw', loading: 'lazy', alt: '' }}
+    </div>
+  {%- endif -%}
+  <div class="pp-gift__panel-heading">
+    <span class="pp-gift__panel-symbol" aria-hidden="true">{% if group == 'boys' %}★{% else %}♥{% endif %}</span>
+    <div>
+      <h3 id="{{ gallery_id }}-heading">{{ section.settings[heading_key] | escape }}</h3>
+      <p>{{ section.settings[subtitle_key] | escape }}</p>
+    </div>
+  </div>
+  {%- if gift_collection != blank and gift_collection.products.size > 0 -%}
+    <ul id="{{ gallery_id }}-track" class="pp-gift__track" data-track tabindex="0" role="list" aria-labelledby="{{ gallery_id }}-heading">
+      {%- for product in gift_collection.products limit: section.settings[limit_key] -%}
+        <li class="pp-gift__slide" data-slide>
+          {% render 'pp-gift-card', product: product, section: section %}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <div class="pp-gift__controls" data-controls hidden>
+      <button type="button" class="pp-gift__arrow" data-previous aria-controls="{{ gallery_id }}-track" aria-label="{{ section.settings.previous_label | escape }}">{% render 'pp-gift-icon', icon: 'previous' %}</button>
+      <div class="pp-gift__dots" data-dots></div>
+      <button type="button" class="pp-gift__arrow" data-next aria-controls="{{ gallery_id }}-track" aria-label="{{ section.settings.next_label | escape }}">{% render 'pp-gift-icon', icon: 'next' %}</button>
+      {%- if section.settings[autoplay_key] -%}
+        <button type="button" class="pp-gift__toggle" data-toggle aria-controls="{{ gallery_id }}-track" aria-label="{{ section.settings.pause_label | escape }}"><span data-toggle-icon aria-hidden="true"></span></button>
+      {%- endif -%}
+    </div>
+    <span class="pp-gift__sr" data-status aria-live="polite" aria-atomic="true"></span>
+  {%- else -%}
+    <p class="pp-gift__empty">{{ section.settings.empty_text | escape }}</p>
+    {%- if request.design_mode and gift_collection == blank -%}
+      <p class="pp-gift__editor-note">Select a collection in this section’s settings to display gift packs.</p>
+    {%- endif -%}
+  {%- endif -%}
+  {%- if gift_collection != blank and section.settings[button_key] != blank -%}
+    <a class="pp-gift__explore" href="{{ gift_collection.url }}">{{ section.settings[button_key] | escape }}{% render 'pp-gift-icon', icon: 'next' %}</a>
+  {%- endif -%}
+</pp-gift-carousel>

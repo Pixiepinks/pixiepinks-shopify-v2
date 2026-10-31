@@ -1,0 +1,284 @@
+{{ 'pp-service-bar.css' | asset_url | stylesheet_tag }}
+{% style %}
+  #shopify-section-{{ section.id }} { --pp-service-background: {{ section.settings.v2_background }}; --pp-service-text: {{ section.settings.v2_text }}; }
+{% endstyle %}
+{% if section.blocks.size > 0 or section.settings.v2_utility_menu != blank or section.settings.show_social %}
+<div class="pp-service" role="region" aria-label="{{ 'sections.header.announcement' | t }}">
+  <div class="pp-service__inner">
+    <ul class="pp-service__messages" role="list" tabindex="0" aria-label="{{ 'sections.header.announcement' | t }}">
+      {% for block in section.blocks %}
+        {% if block.type == 'service_benefit' and block.settings.text != blank and block.settings.v2_enabled != false %}
+          <li class="pp-service__message" {{ block.shopify_attributes }}>
+            {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+            {% render 'pp-icon', icon: block.settings.v2_icon %}
+            <span>{{ block.settings.text | escape }}</span>
+            {% if block.settings.link != blank %}</a>{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if section.settings.v2_utility_menu != blank %}
+      <nav class="pp-service__utility" aria-label="{{ 'pp_v2.utility_navigation' | t }}">
+        {% for link in section.settings.v2_utility_menu.links %}<a href="{{ link.url }}">{{ link.title | escape }}</a>{% endfor %}
+      </nav>
+    {% endif %}
+    {% render 'pp-contact', contact_source: section.settings, contact_class: 'pp-contact--service' %}
+    {% if section.settings.show_social %}{% render 'social-icons' %}{% endif %}
+    {% if section.settings.enable_country_selector and localization.available_countries.size > 1 %}
+      <localization-form>{% form 'localization', id: 'PP-Service-Country' %}{% render 'country-localization', localPosition: 'PPServiceCountry' %}{% endform %}</localization-form>
+    {% endif %}
+    {% if section.settings.enable_language_selector and localization.available_languages.size > 1 %}
+      <localization-form>{% form 'localization', id: 'PP-Service-Language' %}{% render 'language-localization', localPosition: 'PPServiceLanguage' %}{% endform %}</localization-form>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% if section.settings.v2_show_announcements %}
+  <details class="pp-announcements">
+    <summary>{{ 'sections.header.announcement' | t }}</summary>
+    <ul role="list">
+      {% for block in section.blocks %}
+        {% if block.type == 'announcement' and block.settings.text != blank and block.settings.v2_enabled != false %}
+          <li {{ block.shopify_attributes }}>
+            {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+            {{ block.settings.text | escape }}
+            {% if block.settings.link != blank %}</a>{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </details>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 8,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Add Service benefit blocks with short, verified statements. Existing announcements are preserved separately; enable the announcement panel to display them."
+    },
+    {
+      "type": "checkbox",
+      "id": "v2_show_announcements",
+      "label": "Show preserved announcement panel",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "v2_background",
+      "label": "Service bar background",
+      "default": "#FFF2F7"
+    },
+    {
+      "type": "color",
+      "id": "v2_text",
+      "label": "Service bar text",
+      "default": "#19243E"
+    },
+    {
+      "type": "link_list",
+      "id": "v2_utility_menu",
+      "label": "Optional utility menu"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__1.content",
+      "info": "t:sections.announcement-bar.settings.header__1.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.show_social.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__2.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__3.content",
+      "info": "t:sections.announcement-bar.settings.header__3.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__4.content",
+      "info": "t:sections.announcement-bar.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "Optional utility contact"
+    },
+    {
+      "type": "checkbox",
+      "id": "v2_contact_enabled",
+      "label": "Show contact / WhatsApp",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "v2_contact_url",
+      "label": "Contact URL"
+    },
+    {
+      "type": "text",
+      "id": "v2_contact_label",
+      "label": "Contact label",
+      "default": "WhatsApp"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "v2_enabled",
+          "label": "Show this announcement",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "select",
+          "id": "v2_icon",
+          "label": "Optional icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "sparkle",
+              "label": "Sparkle"
+            },
+            {
+              "value": "shield",
+              "label": "Secure payments"
+            },
+            {
+              "value": "returns",
+              "label": "Returns"
+            },
+            {
+              "value": "support",
+              "label": "Support"
+            }
+          ],
+          "default": "none"
+        }
+      ]
+    },
+    {
+      "type": "service_benefit",
+      "name": "Service benefit",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "v2_enabled",
+          "label": "Show this service item",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Verified service benefit",
+          "info": "Use a short label. Only describe policies confirmed by your store."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "select",
+          "id": "v2_icon",
+          "label": "Optional icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "sparkle",
+              "label": "Sparkle"
+            },
+            {
+              "value": "shield",
+              "label": "Secure payments"
+            },
+            {
+              "value": "returns",
+              "label": "Returns"
+            },
+            {
+              "value": "support",
+              "label": "Support"
+            }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PixiePinks service bar",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
