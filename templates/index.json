@@ -454,6 +454,7 @@
         "heading": "",
         "subtitle": "",
         "title_desktop": "shopify://shop_images/Gift_Pack_pc_bg.png",
+        "title_mobile": "shopify://shop_images/Gift_Pack_m_bg.png",
         "overlay_opacity": 30,
         "padding_top": 32,
         "padding_bottom": 40,
