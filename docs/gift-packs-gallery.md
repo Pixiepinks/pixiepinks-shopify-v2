@@ -1,19 +1,19 @@
 # PixiePinks Gift Packs Gallery
 
-The reusable Online Store 2.0 section lives in `theme/`. This repository's selected ref originally contained only `pixiepinks-v2-clean-foundation.zip`. The first feature-branch commit extracts that archive unchanged into `theme/`; the following commit adds the gallery. The original ZIP is retained unchanged. Work is on `feature/gift-packs-gallery`; nothing has been pushed, merged, or published to Shopify.
+The reusable Online Store 2.0 section uses the repository's root-level Shopify directories. The approved implementation commit `a75bd94a3fd7586e4ec19b742eabcad0a817a337` remains in branch history. That implementation originated from the temporary ZIP-download branch; a subsequent reconciliation merges the actual V2 development branch (`main`) into `feature/gift-packs-gallery` and moves only the six gallery additions into its existing theme structure. The final PR diff excludes the ZIP and the nested foundation copy. Nothing has been merged into `main` or published to Shopify.
 
 The supplied mockup guides the blush/blue palette, white rounded cards, bright price badges, hearts/stars, and benefits strip. Use background-only artwork in the image settings for the fairy illustrations; the section does not reuse or flatten the mockup's product names, codes, or prices. Phone cards follow the written 1.2–1.5-card requirement rather than the mockup's smaller three-card composition.
 
 ## Files to install on an unpublished theme
 
-Copy these six files, preserving their directories:
+The six new theme files, preserving their directories:
 
-- `theme/sections/pp-gift-packs-gallery.liquid`
-- `theme/assets/pp-gift-packs-gallery.css`
-- `theme/assets/pp-gift-packs-gallery.js`
-- `theme/snippets/pp-gift-panel.liquid`
-- `theme/snippets/pp-gift-card.liquid`
-- `theme/snippets/pp-gift-icon.liquid`
+- `sections/pp-gift-packs-gallery.liquid`
+- `assets/pp-gift-packs-gallery.css`
+- `assets/pp-gift-packs-gallery.js`
+- `snippets/pp-gift-panel.liquid`
+- `snippets/pp-gift-card.liquid`
+- `snippets/pp-gift-icon.liquid`
 
 Copy only these additions into an existing customized V2 theme. Uploading the whole older foundation over the current store could replace merchant customizations. No existing header, navigation, cards, reviews, template, settings, or section source was edited.
 
@@ -21,9 +21,13 @@ Copy only these additions into an existing customized V2 theme. Uploading the wh
 
 ## Safe homepage placement
 
-The supplied foundation has no combined Featured Products / Today's Special Offers section, product-category gallery, or customer-review gallery. Its first section after the slideshow is New Arrivals (`featured_collection_UFg7hX`). Consequently `theme/templates/index.json` is deliberately unchanged: there is no reliable matching anchor for automatic insertion.
+The verified V2 `main` homepage has these adjacent section IDs:
 
-In **Online Store → Themes**, open **Customize** for the intended unpublished V2 theme. On **Home page**, choose **Add section → Gift Packs Gallery**. Drag it immediately below the combined Featured Products / Today's Special Offers section and above New Arrivals. If the two existing sections are separate, place it after the later of the two. Save the draft theme and confirm the order visually. This retains every existing section ID and setting. On the supplied foundation alone, place it directly before New Arrivals; the missing V2 sections must come from the actual V2 theme. Do not publish without approval.
+1. `pp_featured_products_KKaqgb` — Featured Products
+2. `pp_featured_products_UFjpaW` — Today's Special Offers
+3. `featured_collection_UFg7hX` — New Arrivals
+
+`templates/index.json` remains byte-for-byte unchanged in this PR to preserve merchant-managed settings. In **Online Store → Themes**, open **Customize** for the intended unpublished V2 theme. On **Home page**, choose **Add section → Gift Packs Gallery**. Drag it immediately after Today's Special Offers and before New Arrivals. Save the draft theme and confirm the order visually. This retains every existing section ID and setting. Do not publish without approval.
 
 ## Merchant configuration
 
@@ -66,19 +70,19 @@ From the repository root:
 ```sh
 npm ci --prefix tests/gallery
 npm test --prefix tests/gallery
-/workspace/shopify-tools/node_modules/.bin/shopify theme check --path theme --output json
+/workspace/shopify-tools/node_modules/.bin/shopify theme check --path . --output json
 ```
 
 Tests require Node and Chromium; the default binary is `/usr/bin/chromium` (override with `CHROMIUM_PATH`). The pinned test dependencies and lockfile are separate from the Shopify theme; do not upload `tests/` or `artifacts/` to the theme. The browser test renders the actual section/snippets with LiquidJS, small Shopify-filter substitutes, Dawn base CSS, and explicit synthetic collections. These filter substitutes are a test harness, not a production renderer. Shopify's actual Liquid and schema are checked with Theme Check.
 
 `artifacts/gallery/desktop.png` (1440px) and `mobile.png` (390px) are local design-test screenshots using labelled fixture data and geometric test illustrations. They are **not live-store screenshots or product photographs**. Responsive checks also cover 768px and 320px. `test-results.json` records completed checks; `accessibility.json` records automated accessibility violations. Theme Check evidence is in `theme-check.json` with its pre-existing baseline in `theme-check-baseline.json`.
 
-The baseline has 6 `ParserBlockingScript` errors in BSS snippets and 21 warnings. The gallery must introduce zero additional findings; those original files are not changed or suppressed.
+The V2 `main` baseline has 6 `ParserBlockingScript` errors in BSS snippets and 22 warnings. The gallery must introduce zero additional findings; those original files are not changed or suppressed.
 
-Delivery validation: all 46 browser checks passed, including native touch events, independent autoplay, manual controls, pause behavior, reduced motion, currency-code formatting, empty collections, missing images, and custom-element reload cleanup. The automated WCAG A/AA scan found zero violations. Theme Check matched the baseline exactly: 6 existing errors, 21 existing warnings, zero new findings. Shopify CLI theme packaging passed. All 307 original archive entries remained byte-for-byte unchanged. There was no pre-existing repository test runner.
+Delivery validation: all 46 browser checks passed, including native touch events, independent autoplay, manual controls, pause behavior, reduced motion, currency-code formatting, empty collections, missing images, and custom-element reload cleanup. The automated WCAG A/AA scan found zero violations. Theme Check matched the baseline exactly: 6 existing errors, 22 existing warnings, zero new findings. Shopify CLI theme packaging passed. Every pre-existing file from the verified V2 base remains byte-for-byte unchanged in the final PR diff. There was no pre-existing repository test runner.
 
 ### Remaining Shopify integration checks
 
 No Shopify store session or store credentials were available. Before publishing, test the unpublished V2 theme with its actual collections, Markets currency context, all four uploaded images, and real product/metafield values. In Customize, replace/reorder/reload this section, toggle either panel, change collections, and verify independent movement and no console errors. Confirm the homepage order against the actual V2 theme. Browser fixtures test the custom-element disconnect/reconnect and duplicate-script lifecycle but cannot certify Shopify's remote editor or real checkout/catalog behavior.
 
-With authorized store access, use the installed CLI's `theme dev --path theme --store <actual-store>.myshopify.com` against an approved development theme, or copy the six additions into the actual V2 development theme. Review required Shopify network access first. Do not run a whole-foundation push over the merchant theme. No live theme upload or publication is part of this delivery.
+With authorized store access, use the installed CLI's `theme dev --path . --store <actual-store>.myshopify.com` against an approved development theme, or copy the six additions into the actual V2 development theme. Review required Shopify network access first. Do not run a whole-foundation push over the merchant theme. No live theme upload or publication is part of this delivery.

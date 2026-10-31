@@ -9,7 +9,7 @@ const { Liquid } = require('liquidjs');
 const { chromium } = require('playwright');
 const { default: AxeBuilder } = require('@axe-core/playwright');
 const root = path.resolve(__dirname, '../..');
-const theme = path.join(root, 'theme');
+const theme = root;
 const output = path.join(root, 'artifacts/gallery');
 const source = fs.readFileSync(path.join(theme, 'sections/pp-gift-packs-gallery.liquid'), 'utf8');
 const schema = JSON.parse(source.match(/{% schema %}([\s\S]*?){% endschema %}/)[1]);
@@ -57,7 +57,7 @@ async function render(variant) {
     settings.boys_background = { colour: 'blue' }; settings.girls_background = { colour: 'pink' };
   }
   const section = await engine.parseAndRender(source, { section: { id: 'fixture-gallery', settings } }, { globals: { settings: { currency_code_enabled: variant === 'currency' }, request: { design_mode: variant === 'empty' } } });
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gift Gallery — isolated test fixture</title><link rel="stylesheet" href="/assets/base.css"><style>html{font-size:62.5%}body{margin:0;font-family:Arial,sans-serif;font-size:16px}body{--font-heading-family:Arial,sans-serif;--font-body-family:Arial,sans-serif}.fixture-note{margin:0;padding:10px 18px;background:#fff;color:#62556a;font:12px Arial,sans-serif;text-align:center}</style></head><body><p class="fixture-note">PIXIEPINKS · LOCAL DESIGN TEST · Illustrations and product data are test fixtures</p><main>${section}</main></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gift Gallery — isolated test fixture</title><link rel="stylesheet" href="/assets/base.css"><link rel="stylesheet" href="/assets/pp-design-system.css"><link rel="stylesheet" href="/assets/pp-fluid-layout.css"><style>html{font-size:62.5%}body{margin:0;font-family:Arial,sans-serif;font-size:16px}body{--font-heading-family:Arial,sans-serif;--font-body-family:Arial,sans-serif}.fixture-note{margin:0;padding:10px 18px;background:#fff;color:#62556a;font:12px Arial,sans-serif;text-align:center}</style></head><body class="pp-fluid-layout"><p class="fixture-note">PIXIEPINKS · LOCAL DESIGN TEST · Illustrations and product data are test fixtures</p><main>${section}</main></body></html>`;
 }
 
 function illustration(colour) {

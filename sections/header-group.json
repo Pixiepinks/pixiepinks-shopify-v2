@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "service_benefit_yzaRt4": {
+          "type": "service_benefit",
+          "settings": {
+            "v2_enabled": true,
+            "text": "Dedicated Customer Support",
+            "link": "",
+            "v2_icon": "support"
+          }
+        },
+        "service_benefit_x8qxcz": {
+          "type": "service_benefit",
+          "settings": {
+            "v2_enabled": true,
+            "text": "Secure Payments",
+            "link": "",
+            "v2_icon": "shield"
+          }
+        },
+        "service_benefit_eVGdjH": {
+          "type": "service_benefit",
+          "settings": {
+            "v2_enabled": true,
+            "text": "Island wide Delivery",
+            "link": "",
+            "v2_icon": "delivery"
+          }
+        }
+      },
+      "block_order": [
+        "service_benefit_yzaRt4",
+        "service_benefit_x8qxcz",
+        "service_benefit_eVGdjH"
+      ],
+      "settings": {
+        "v2_show_announcements": false,
+        "v2_background": "#fff2f7",
+        "v2_text": "#19243e",
+        "v2_utility_menu": "",
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "v2_contact_enabled": false,
+        "v2_contact_url": "",
+        "v2_contact_label": "WhatsApp"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "v2_logo_image": "shopify://shop_images/ChatGPT_Image_Oct_9_2026_02_33_07_PM.png",
+        "v2_logo_width": 340,
+        "v2_sticky": true,
+        "v2_show_search": true,
+        "v2_search_placeholder": "Search for bicycles, toys, school bags, gift packs and more...",
+        "v2_contact_enabled": true,
+        "v2_contact_url": "",
+        "v2_contact_label": "WhatsApp",
+        "v2_contact_caption": "Chat with us",
+        "menu": "main-menu",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "margin_bottom": 0,
+        "v2_offer_enabled": true,
+        "v2_offer_label": "Today's Offers",
+        "v2_offer_url": "shopify://products/1pc-disney-character-metal-pencil-box-for-kids-frozen-superhero-school-pencil-case",
+        "v2_offer_icon": true
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

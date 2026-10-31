@@ -1,2 +1,12 @@
-tests/gallery/node_modules/
-theme/*.zip
+# Local tooling and generated artifacts
+node_modules/
+.shopify/
+*.zip
+*.log
+.DS_Store
+reports/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
