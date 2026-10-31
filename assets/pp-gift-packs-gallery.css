@@ -9,7 +9,7 @@
 }
 .pp-gift *, .pp-gift *::before, .pp-gift *::after { box-sizing: border-box; }
 .pp-gift [hidden] { display: none !important; }
-.pp-gift__inner { max-width: 1360px; margin-inline: auto; }
+.pp-gift__inner { width: 100%; margin-inline: auto; }
 .pp-gift__hero { position: relative; isolation: isolate; min-height: 240px; display: grid; place-items: center; text-align: center; padding: 36px 60px; }
 .pp-gift__hero--image { aspect-ratio: 1920 / 500; }
 .pp-gift__hero-art, .pp-gift__panel-art { position: absolute; inset: 0; z-index: -2; pointer-events: none; }
@@ -74,6 +74,9 @@
 .pp-gift__benefits li:nth-child(even) > span { background: linear-gradient(145deg, #d4acff, #8c29ef); }
 .pp-gift__benefits svg { width: 26px; height: 26px; }
 .pp-gift__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (min-width: 990px) {
+  .pp-gift { padding-inline: var(--pp-layout-gutter, 20px); }
+}
 @media (max-width: 989px) {
   .pp-gift__panels { grid-template-columns: minmax(0, 1fr); }
   .pp-gift__panel-heading h3 { font-size: 30px; }

@@ -15,7 +15,7 @@
             {%- if section.settings.title_mobile != blank -%}
               <source media="(max-width: 749px)" srcset="{{ section.settings.title_mobile | image_url: width: 540 }} 540w, {{ section.settings.title_mobile | image_url: width: 1080 }} 1080w" sizes="100vw">
             {%- endif -%}
-            {{ title_image | image_url: width: 1920 | image_tag: widths: '640, 960, 1440, 1920', sizes: '(min-width: 1440px) 1360px, 100vw', loading: 'lazy', alt: '' }}
+            {{ title_image | image_url: width: 1920 | image_tag: widths: '640, 960, 1440, 1920', sizes: '(min-width: 1440px) calc(100vw - 48px), (min-width: 1024px) calc(100vw - 40px), (min-width: 990px) calc(100vw - 32px), 100vw', loading: 'lazy', alt: '' }}
           </picture>
         {%- endif -%}
         <span class="pp-gift__spark pp-gift__spark--one" aria-hidden="true">✦</span>
