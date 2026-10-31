@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "description": "Local Liquid fixtures and browser checks; never deploy fixtures to Shopify.",
+  "scripts": { "test": "node verify.cjs" },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "liquidjs": "10.30.1",
+    "playwright": "1.62.1"
+  }
+}
