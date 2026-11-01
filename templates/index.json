@@ -468,7 +468,7 @@
         "boys_interval": 5,
         "boys_button": "Explore Boys Gift Packs",
         "girls_enabled": true,
-        "girls_collection": "",
+        "girls_collection": "girls-gift-pack",
         "girls_background": "shopify://shop_images/Girls_Gift_Packs_Fantasy_Clouds.png",
         "girls_heading": "",
         "girls_subtitle": "Princess • Fashion • Creative • More",
