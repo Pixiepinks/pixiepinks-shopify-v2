@@ -66,7 +66,7 @@
     { "type": "header", "content": "Boys gallery" },
     { "type": "checkbox", "id": "boys_enabled", "label": "Enable Boys gallery", "default": true },
     { "type": "collection", "id": "boys_collection", "label": "Boys collection" },
-    {"type": "image_picker", "id": "boys_background", "label": "Boys background", "info": "Use a separate artwork banner for images with headings. Background mode is best for text-free decoration."},
+    { "type": "image_picker", "id": "boys_background", "label": "Boys background", "info": "Recommended: 1080 × 1350 px. Do not include products, prices or codes." },
     { "type": "text", "id": "boys_heading", "label": "Boys heading", "default": "Boys Gift Packs" },
     { "type": "text", "id": "boys_subtitle", "label": "Boys subtitle", "default": "Fun • Adventure • Learning • More" },
     { "type": "range", "id": "boys_limit", "label": "Boys product count", "min": 1, "max": 16, "step": 1, "default": 8 },
@@ -76,7 +76,7 @@
     { "type": "header", "content": "Girls gallery" },
     { "type": "checkbox", "id": "girls_enabled", "label": "Enable Girls gallery", "default": true },
     { "type": "collection", "id": "girls_collection", "label": "Girls collection" },
-    {"type": "image_picker", "id": "girls_background", "label": "Girls background", "info": "Use a separate artwork banner for images with headings. Background mode is best for text-free decoration."},
+    { "type": "image_picker", "id": "girls_background", "label": "Girls background", "info": "Recommended: 1080 × 1350 px. Do not include products, prices or codes." },
     { "type": "text", "id": "girls_heading", "label": "Girls heading", "default": "Girls Gift Packs" },
     { "type": "text", "id": "girls_subtitle", "label": "Girls subtitle", "default": "Princess • Fashion • Creative • More" },
     { "type": "range", "id": "girls_limit", "label": "Girls product count", "min": 1, "max": 16, "step": 1, "default": 8 },
@@ -98,34 +98,6 @@
     { "type": "text", "id": "benefit_quality", "label": "Benefit 2", "default": "High Quality Products" },
     { "type": "text", "id": "benefit_occasion", "label": "Benefit 3", "default": "Perfect for Every Occasion" },
     { "type": "text", "id": "benefit_delivery", "label": "Benefit 4", "default": "Islandwide Delivery" }
-  ],
-  "blocks": [
-    {
-      "type": "boys_artwork",
-      "name": "Boys artwork controls",
-      "limit": 1,
-      "settings": [
-        {"type": "select", "id": "boys_artwork_layout", "label": "Artwork placement", "default": "header", "options": [{"value": "header", "label": "Separate banner above products"}, {"value": "background", "label": "Decorative panel background"}]},
-        {"type": "select", "id": "boys_artwork_fit", "label": "Artwork fit", "default": "cover", "options": [{"value": "cover", "label": "Fill area (may crop)"}, {"value": "contain", "label": "Show complete image"}]},
-        {"type": "select", "id": "boys_artwork_position", "label": "Artwork position", "default": "center top", "options": [{"value": "center top", "label": "Top"}, {"value": "center center", "label": "Centre"}, {"value": "center bottom", "label": "Bottom"}]},
-        {"type": "range", "id": "boys_artwork_height", "label": "Minimum desktop banner height", "min": 100, "max": 360, "step": 10, "unit": "px", "default": 200},
-        {"type": "range", "id": "boys_artwork_mobile_height", "label": "Mobile artwork banner height", "min": 80, "max": 240, "step": 10, "unit": "px", "default": 140},
-        {"type": "checkbox", "id": "boys_artwork_has_heading", "label": "Artwork already includes heading", "default": false, "info": "In banner mode, hide the repeated visual heading while keeping it accessible."}
-      ]
-    },
-    {
-      "type": "girls_artwork",
-      "name": "Girls artwork controls",
-      "limit": 1,
-      "settings": [
-        {"type": "select", "id": "girls_artwork_layout", "label": "Artwork placement", "default": "header", "options": [{"value": "header", "label": "Separate banner above products"}, {"value": "background", "label": "Decorative panel background"}]},
-        {"type": "select", "id": "girls_artwork_fit", "label": "Artwork fit", "default": "cover", "options": [{"value": "cover", "label": "Fill area (may crop)"}, {"value": "contain", "label": "Show complete image"}]},
-        {"type": "select", "id": "girls_artwork_position", "label": "Artwork position", "default": "center top", "options": [{"value": "center top", "label": "Top"}, {"value": "center center", "label": "Centre"}, {"value": "center bottom", "label": "Bottom"}]},
-        {"type": "range", "id": "girls_artwork_height", "label": "Minimum desktop banner height", "min": 100, "max": 360, "step": 10, "unit": "px", "default": 200},
-        {"type": "range", "id": "girls_artwork_mobile_height", "label": "Mobile artwork banner height", "min": 80, "max": 240, "step": 10, "unit": "px", "default": 140},
-        {"type": "checkbox", "id": "girls_artwork_has_heading", "label": "Artwork already includes heading", "default": false, "info": "In banner mode, hide the repeated visual heading while keeping it accessible."}
-      ]
-    }
   ],
   "presets": [{ "name": "Gift Packs Gallery" }]
 }
