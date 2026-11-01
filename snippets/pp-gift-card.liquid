@@ -5,13 +5,13 @@
 <a class="pp-gift__card" href="{{ product.url }}">
   <div class="pp-gift__photo">
     {%- if product.featured_image != blank -%}
-      {{ product.featured_image | image_url: width: 810 | image_tag: widths: '180, 270, 360, 540, 810', sizes: '(min-width: 990px) 16vw, (min-width: 750px) 29vw, 76vw', loading: 'lazy', alt: product.featured_image.alt }}
+      {{ product.featured_image | image_url: width: 810 | image_tag: widths: '180, 270, 360, 540, 810', sizes: '(min-width: 1440px) 196px, (min-width: 990px) 15vw, (min-width: 750px) 29vw, 68vw', loading: 'lazy', alt: product.featured_image.alt }}
     {%- else -%}
       <span class="pp-gift__missing">{% render 'pp-gift-icon', icon: 'gift' %}<span>{{ section.settings.missing_image | escape }}</span></span>
     {%- endif -%}
     <span class="pp-gift__price">
       {%- if gift_variant.compare_at_price > gift_variant.price -%}
-        <s><span class="pp-gift__sr">{{ 'products.product.price.regular_price' | t }} </span>{{ gift_variant.compare_at_price | money_without_currency }}</s>
+        <s><span class="pp-gift__sr">{{ 'products.product.price.regular_price' | t }} </span>{{ gift_variant.compare_at_price | money }}</s>
         <span class="pp-gift__sr">{{ 'products.product.price.sale_price' | t }} </span>
       {%- endif -%}
       {%- if settings.currency_code_enabled -%}
@@ -20,10 +20,10 @@
         {{ gift_variant.price | money }}
       {%- endif -%}
     </span>
-    {%- unless product.available -%}<span class="pp-gift__sold-out">{{ 'products.product.sold_out' | t }}</span>{%- endunless -%}
   </div>
   <div class="pp-gift__card-copy">
     {%- if gift_code != blank -%}<span class="pp-gift__code"><span class="pp-gift__sr">{{ section.settings.code_label | escape }}: </span>{{ gift_code | escape }}</span>{%- endif -%}
     <h4 class="pp-gift__product-title">{{ product.title | escape }}</h4>
+    {%- unless product.available -%}<span class="pp-gift__sold-out">{{ 'products.product.sold_out' | t }}</span>{%- endunless -%}
   </div>
 </a>

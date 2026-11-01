@@ -88,8 +88,6 @@ if (!customElements.get('pp-gift-carousel')) {
       this.index = this.positions.reduce((best, position, index) =>
         Math.abs(position - this.track.scrollLeft) < Math.abs(this.positions[best] - this.track.scrollLeft) ? index : best, 0);
       [...this.dots.children].forEach((dot, page) => dot.setAttribute('aria-current', String(page === this.index)));
-      const currentDot = this.dots.children[this.index];
-      if (currentDot) this.dots.scrollLeft = currentDot.offsetLeft - (this.dots.clientWidth - currentDot.offsetWidth) / 2;
     }
 
     go(index, announce = false) {
