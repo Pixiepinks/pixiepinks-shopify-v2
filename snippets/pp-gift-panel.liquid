@@ -10,10 +10,31 @@
   assign button_key = group | append: '_button'
   assign gift_collection = section.settings[collection_key]
   assign background = section.settings[background_key]
+  assign layout_key = group | append: '_artwork_layout'
+  assign fit_key = group | append: '_artwork_fit'
+  assign position_key = group | append: '_artwork_position'
+  assign height_key = group | append: '_artwork_height'
+  assign mobile_height_key = group | append: '_artwork_mobile_height'
+  assign baked_heading_key = group | append: '_artwork_has_heading'
+  assign artwork_type = group | append: '_artwork'
+  assign artwork_settings = section.settings
+  for artwork_block in section.blocks
+    if artwork_block.type == artwork_type
+      assign artwork_settings = artwork_block.settings
+      assign selected_artwork_block = artwork_block
+      break
+    endif
+  endfor
+  assign artwork_layout = artwork_settings[layout_key] | default: 'header'
+  assign has_products = false
+  if gift_collection != blank and gift_collection.products.size > 0
+    assign has_products = true
+  endif
   assign gallery_id = 'PPGift-' | append: section.id | append: '-' | append: group
 -%}
 <pp-gift-carousel
-  class="pp-gift__panel pp-gift__panel--{{ group }}"
+  class="pp-gift__panel pp-gift__panel--{{ group }}{% unless has_products %} pp-gift__panel--empty{% endunless %}{% if background != blank and has_products and artwork_layout == 'header' %} pp-gift__panel--art-header{% if artwork_settings[baked_heading_key] %} pp-gift__panel--art-heading{% endif %}{% endif %}"
+  style="--pp-art-fit: {{ artwork_settings[fit_key] | default: 'cover' }}; --pp-art-position: {{ artwork_settings[position_key] | default: 'center top' }}; --pp-art-height: {{ artwork_settings[height_key] | default: 200 }}px; --pp-art-mobile-height: {{ artwork_settings[mobile_height_key] | default: 140 }}px;"
   role="region"
   aria-labelledby="{{ gallery_id }}-heading"
   data-autoplay="{{ section.settings[autoplay_key] }}"
@@ -22,8 +43,8 @@
   data-play-label="{{ section.settings.play_label | escape }}"
   data-page-label="{{ section.settings.page_label | escape }}"
 >
-  {%- if background != blank -%}
-    <div class="pp-gift__panel-art" aria-hidden="true">
+  {%- if background != blank and has_products -%}
+    <div class="pp-gift__panel-art" aria-hidden="true" {{ selected_artwork_block.shopify_attributes }}>
       {{ background | image_url: width: 1080 | image_tag: widths: '360, 540, 750, 1080', sizes: '(min-width: 990px) 48vw, 100vw', loading: 'lazy', alt: '' }}
     </div>
   {%- endif -%}
@@ -34,7 +55,7 @@
       <p>{{ section.settings[subtitle_key] | escape }}</p>
     </div>
   </div>
-  {%- if gift_collection != blank and gift_collection.products.size > 0 -%}
+  {%- if has_products -%}
     <ul id="{{ gallery_id }}-track" class="pp-gift__track" data-track tabindex="0" role="list" aria-labelledby="{{ gallery_id }}-heading">
       {%- for product in gift_collection.products limit: section.settings[limit_key] -%}
         <li class="pp-gift__slide" data-slide>
