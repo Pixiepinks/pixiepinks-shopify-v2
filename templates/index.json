@@ -15,6 +15,25 @@
         "slide_Ar8U7U": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/WhatsApp_070_575_5777pc.png",
+            "mobile_image": "shopify://shop_images/Sri_Lanka_s_Vibrant_Bicycle_Showcase.png",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/bicycle",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-a2083f51-7e03-4f19-a3ac-d0affad0e9b8",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_UP7FkF": {
+          "type": "slide",
+          "settings": {
             "image": "shopify://shop_images/WhatsApp_070_575_5777.png",
             "mobile_image": "shopify://shop_images/Hero_3_M_fdf5678a-772b-48f6-b8c8-298d1bb8275f.png",
             "heading": "",
@@ -72,6 +91,7 @@
       },
       "block_order": [
         "slide_Ar8U7U",
+        "slide_UP7FkF",
         "slide_eQWR3i",
         "slide_FNaCRz"
       ],
