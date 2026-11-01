@@ -460,6 +460,7 @@
         "padding_bottom": 40,
         "boys_enabled": true,
         "boys_collection": "",
+        "boys_background": "shopify://shop_images/ChatGPT_Image_Nov_1_2026_09_32_53_AM.png",
         "boys_heading": "Boys Gift Packs",
         "boys_subtitle": "Fun • Adventure • Learning • More",
         "boys_limit": 8,
