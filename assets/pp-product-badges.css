@@ -1,0 +1,31 @@
+/* Overlay only; never affect card dimensions or intercept card/zoom/swipe input. */
+.pp-product-badges {
+  position: absolute; z-index: 3; pointer-events: none;
+  display: flex; flex-direction: column; gap: 4px;
+  width: min(var(--pp-badge-desktop), calc(100% - var(--pp-badge-x) * 2));
+  top: var(--pp-badge-y); left: var(--pp-badge-x);
+}
+.pp-product-badges--top-right, .pp-product-badges--bottom-right { left: auto; right: var(--pp-badge-x); }
+.pp-product-badges--bottom-left, .pp-product-badges--bottom-right { top: auto; bottom: var(--pp-badge-y); }
+.pp-product-badges__item { display: block; width: 100%; }
+.pp-product-badges .pp-product-badges__image { display: block; position: static; width: 100%; height: auto; max-height: 56px; object-fit: contain; }
+.pp-product-badges__pill { display: flex; justify-content: center; align-items: center; gap: 4px; padding: 5px 6px; border: 1px solid #fff; border-radius: 999px; background: #ed287e; color: #fff; box-shadow: 0 2px 5px #0002; font: 700 clamp(9px, 1vw, 11px)/1.2 Arial, sans-serif; letter-spacing: 0; white-space: nowrap; }
+.pp-product-badges__pill svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.product-media-container:has(> .pp-product-badges) { position: relative; }
+/* Reserve the existing label row in Dawn cards, regardless of selected corner. */
+.card__inner:has(.card__badge.top .badge) > .pp-product-badges[class*="--top-"] { top: calc(var(--pp-badge-y) + 38px); }
+.card__inner:has(.card__badge:not(.top) .badge) > .pp-product-badges[class*="--bottom-"] { bottom: calc(var(--pp-badge-y) + 38px); }
+/* Gift price retains its top-right position; its actual height reserves the next row. */
+.pp-product-badges-gift-layer { position: absolute; inset: 0; display: flex; flex-direction: column; pointer-events: none; }
+.pp-product-badges-gift-layer > .pp-gift__price { position: relative; top: auto; right: auto; align-self: flex-end; flex-shrink: 0; margin: 8px 6px 0; }
+.pp-product-badges-gift-layer > .pp-product-badges { position: relative; top: auto; left: auto; right: auto; bottom: auto; flex-shrink: 0; margin: var(--pp-badge-y) var(--pp-badge-x) 0; }
+.pp-product-badges-gift-layer > .pp-product-badges[class*="--right"] { align-self: flex-end; }
+.pp-product-badges-gift-layer > .pp-product-badges[class*="--bottom-"] { margin-top: auto; margin-bottom: var(--pp-badge-y); }
+/* Dawn zoom icon occupies the top-left corner; reserve its control row. */
+.product-media-container > .pp-product-badges--top-left { top: calc(var(--pp-badge-y) + 48px); }
+.pp-product-badges--search { position: static; width: min(var(--pp-badge-desktop), 100%); margin-bottom: 4px; }
+@media (max-width: 749px) {
+  .pp-product-badges { width: min(var(--pp-badge-mobile), calc(100% - var(--pp-badge-x) * 2)); }
+  .pp-product-badges__pill { font-size: 9px; padding: 4px; gap: 3px; }
+  .pp-product-badges__pill svg { width: 15px; height: 15px; }
+}
