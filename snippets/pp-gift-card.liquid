@@ -2,6 +2,7 @@
   assign gift_variant = product.selected_or_first_available_variant
   assign gift_code = product.metafields.custom.gift_pack_code.value | default: gift_variant.sku
 -%}
+{%- capture gift_badges -%}{% render 'pp-product-badges', product: product, context: 'gallery' %}{%- endcapture -%}
 <a class="pp-gift__card" href="{{ product.url }}">
   <div class="pp-gift__photo">
     {%- if product.featured_image != blank -%}
@@ -9,6 +10,7 @@
     {%- else -%}
       <span class="pp-gift__missing">{% render 'pp-gift-icon', icon: 'gift' %}<span>{{ section.settings.missing_image | escape }}</span></span>
     {%- endif -%}
+    {%- if gift_badges != blank -%}<div class="pp-product-badges-gift-layer">{%- endif -%}
     <span class="pp-gift__price">
       {%- if gift_variant.compare_at_price > gift_variant.price -%}
         <s><span class="pp-gift__sr">{{ 'products.product.price.regular_price' | t }} </span>{{ gift_variant.compare_at_price | money }}</s>
@@ -20,6 +22,7 @@
         {{ gift_variant.price | money }}
       {%- endif -%}
     </span>
+    {%- if gift_badges != blank -%}{{ gift_badges }}</div>{%- endif -%}
   </div>
   <div class="pp-gift__card-copy">
     {%- if gift_code != blank -%}<span class="pp-gift__code"><span class="pp-gift__sr">{{ section.settings.code_label | escape }}: </span>{{ gift_code | escape }}</span>{%- endif -%}

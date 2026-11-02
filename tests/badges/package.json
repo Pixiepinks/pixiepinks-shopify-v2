@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "description": "Synthetic Liquid and Chromium badge checks; not deployed to Shopify.",
+  "scripts": {
+    "test": "node verify.cjs"
+  },
+  "devDependencies": {
+    "liquidjs": "10.30.1",
+    "playwright": "1.62.1"
+  }
+}

@@ -77,6 +77,7 @@
                 {%- assign media = product.selected_or_first_available_variant.featured_media -%}
                 <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
                   {% render 'product-thumbnail',
+                    product: product,
                     media: media,
                     position: 'featured',
                     loop: section.settings.enable_video_looping,
@@ -100,6 +101,7 @@
                 -%}
                   <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
                     {% render 'product-thumbnail',
+                      product: product,
                       media: media,
                       position: forloop.index,
                       loop: section.settings.enable_video_looping,
@@ -542,6 +544,7 @@
                   {%- assign media = product.selected_or_first_available_variant.featured_media -%}
                   <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
                     {% render 'product-thumbnail',
+                      product: product,
                       media: media,
                       position: 'featured',
                       loop: section.settings.enable_video_looping,
@@ -559,6 +562,7 @@
                   -%}
                     <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
                       {% render 'product-thumbnail',
+                        product: product,
                         media: media,
                         position: forloop.index,
                         loop: section.settings.enable_video_looping,

@@ -1,0 +1,25 @@
+{% comment %}
+  Authoritative eligibility and badge list. Accepts product, context (card/gallery/product),
+  placement and badge_size (optional). Add future badges here in priority order.
+  Call once per image container, never from price or parent grid snippets.
+{% endcomment %}
+{%- if settings.pp_badges_enabled and settings.pp_free_delivery_enabled and product.metafields.custom.free_delivery_badge.value == true -%}
+  {%- liquid
+    assign badge_position = placement | default: settings.pp_badge_position | default: 'top-left'
+    assign badge_desktop = badge_size | default: settings.pp_badge_size_desktop | default: 110
+    assign badge_mobile = settings.pp_badge_size_mobile | default: 90
+  -%}
+  {%- capture badge_sizes -%}(max-width: 749px) {{ badge_mobile }}px, {{ badge_desktop }}px{%- endcapture -%}
+  <div class="pp-product-badges pp-product-badges--{{ badge_position | escape }} pp-product-badges--{{ context | default: 'card' | escape }}" style="--pp-badge-desktop: {{ badge_desktop }}px; --pp-badge-mobile: {{ badge_mobile }}px; --pp-badge-x: {{ settings.pp_badge_offset_x | default: 8 }}px; --pp-badge-y: {{ settings.pp_badge_offset_y | default: 8 }}px;">
+    <span class="pp-product-badges__item" role="img" aria-label="Free Delivery">
+      {%- if settings.pp_free_delivery_image != blank -%}
+        {{ settings.pp_free_delivery_image | image_url: width: 480 | image_tag: widths: '90, 110, 160, 220, 320, 480', sizes: badge_sizes, loading: 'lazy', alt: '', class: 'pp-product-badges__image' }}
+      {%- else -%}
+        <span class="pp-product-badges__pill" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M3 5h11v12H3zM14 10h4l3 4v3h-7M3 9H1M3 12H0"/><circle cx="6.5" cy="18" r="2" fill="#ed287e"/><circle cx="17.5" cy="18" r="2" fill="#ed287e"/></svg>
+          <span>Free Delivery</span>
+        </span>
+      {%- endif -%}
+    </span>
+  </div>
+{%- endif -%}

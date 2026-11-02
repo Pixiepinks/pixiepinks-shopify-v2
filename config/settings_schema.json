@@ -1459,5 +1459,96 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
+  },
+  {
+    "name": "PixiePinks Product Badges",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "pp_badges_enabled",
+        "label": "Enable Global Product Badges",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "pp_free_delivery_enabled",
+        "label": "Enable Free Delivery Badge",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Only products with custom.free_delivery_badge set to true display a badge. This does not change shipping rates."
+      },
+      {
+        "type": "image_picker",
+        "id": "pp_free_delivery_image",
+        "label": "Upload Free Delivery Badge Image",
+        "info": "Transparent PNG or WebP recommended. Upload once for all products."
+      },
+      {
+        "type": "range",
+        "id": "pp_badge_size_desktop",
+        "label": "Desktop Badge Size",
+        "min": 90,
+        "max": 160,
+        "step": 5,
+        "unit": "px",
+        "default": 110
+      },
+      {
+        "type": "range",
+        "id": "pp_badge_size_mobile",
+        "label": "Mobile Badge Size",
+        "min": 90,
+        "max": 160,
+        "step": 5,
+        "unit": "px",
+        "default": 90
+      },
+      {
+        "type": "select",
+        "id": "pp_badge_position",
+        "label": "Badge Position",
+        "default": "top-left",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top Left"
+          },
+          {
+            "value": "top-right",
+            "label": "Top Right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom Left"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom Right"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "pp_badge_offset_x",
+        "label": "Horizontal Offset",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "pp_badge_offset_y",
+        "label": "Vertical Offset",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 8
+      }
+    ]
   }
 ]
