@@ -6,7 +6,7 @@ const { Liquid } = require('liquidjs');
 const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '../..');
 const engine = new Liquid({ root: path.join(root, 'snippets'), extname: '.liquid' });
-engine.registerFilter('image_url', () => 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="100"%3E%3C/svg%3E');
+engine.registerFilter('image_url', () => 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="100"%3E%3Crect width="300" height="100" fill="%23ed287e"/%3E%3C/svg%3E');
 engine.registerFilter('image_tag', src => `<img class="pp-product-badges__image" src='${src}' width="300" height="100" alt="">`);
 engine.registerFilter('money', () => 'Rs. 22,000.00');
 engine.registerFilter('money_with_currency', () => 'LKR 22,000.00');
@@ -38,20 +38,27 @@ const count = html => (html.match(/class="pp-product-badges /g)||[]).length;
   let layouts=0;
   for (const width of [320,390,1440]) for(const position of ['top-left','top-right','bottom-left','bottom-right']) for(const custom of [false,true]) {
     await page.setViewportSize({width,height:800});
-    const s={...settings,pp_badge_position:position,pp_free_delivery_image:custom?{}:null};
+    const s={...settings,pp_badge_position:position,pp_free_delivery_image:custom?{}:null,...(position==='top-left'?{pp_badge_offset_x:3,pp_badge_offset_y:0}:{})};
     const gift=await engine.renderFile('pp-gift-card',{product,section:{settings:{missing_image:'Image unavailable',code_label:'Code'}}}, {globals:{settings:s}});
     assert.equal(count(gift),1);
     const badge=await render(s);
-    await page.setContent(`<style>${css} .fixture{width:${width<750?145:196}px}.card__inner{height:240px}.card__badge{position:absolute;top:8px;left:8px}.product-media-container{width:280px;height:300px}.control{position:absolute;left:12px;top:12px;width:36px;height:36px}</style><div class="fixture">${gift}</div><div class="fixture card__inner">${badge}<div class="card__badge top"><span class="badge">Sold out</span></div></div><div class="product-media-container">${await render(s,product,'product')}<button class="control">Zoom</button></div>`);
+    const nativeCorner=position === 'top-left' ? 'top right' : 'top';
+    await page.setContent(`<style>${css} .fixture{width:${width<750?145:196}px}.card__inner{height:240px}.card__badge{position:absolute;top:${s.pp_badge_offset_y}px;left:8px}.card__badge.right{left:auto;right:8px}.product-media-container{width:280px;height:300px}.control{position:absolute;left:12px;top:12px;width:36px;height:36px}</style><div class="fixture">${gift}</div><div class="fixture card__inner">${badge}<div class="card__badge ${nativeCorner}"><span class="badge">Sold out</span></div></div><div class="product-media-container">${await render(s,product,'product')}<button class="control">Zoom</button></div>`);
     await page.locator('.pp-gift__photo').waitFor();
     const result=await page.evaluate(()=>{
       const box=s=>document.querySelector(s).getBoundingClientRect();
       const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
       const gift=box('.pp-gift__photo .pp-product-badges'),price=box('.pp-gift__price'),photo=box('.pp-gift__photo');
       const badge=document.querySelector('.pp-product-badges');
-      return {overlap:intersects(gift,price),inside:gift.left>=photo.left&&gift.right<=photo.right&&gift.bottom<=photo.bottom, width:gift.width,pointer:getComputedStyle(badge).pointerEvents,cardOverlap:intersects(box('.card__inner > .pp-product-badges'),box('.card__badge')),zoomOverlap:intersects(box('.product-media-container > .pp-product-badges'),box('.control'))};
+      const graphic=box('.pp-gift__photo .pp-product-badges__image, .pp-gift__photo .pp-product-badges__pill');
+      return {giftTop:gift.top,priceTop:price.top,graphicTop:graphic.top,cardTop:box('.card__inner > .pp-product-badges').top,nativeTop:box('.card__badge').top,overlap:intersects(gift,price),inside:gift.left>=photo.left&&gift.right<=photo.right&&gift.bottom<=photo.bottom, width:gift.width,pointer:getComputedStyle(badge).pointerEvents,cardOverlap:intersects(box('.card__inner > .pp-product-badges'),box('.card__badge')),zoomOverlap:intersects(box('.product-media-container > .pp-product-badges'),box('.control'))};
     });
     assert.equal(result.overlap,false,JSON.stringify({width,position,custom,result}));
+    if(position==='top-left') {
+      assert.ok(Math.abs(result.giftTop-result.priceTop)<.5,'gift badge shares price top inset');
+      assert.ok(Math.abs(result.graphicTop-result.priceTop)<.5,'fixture artwork starts at price top, even with badge Y offset zero');
+      assert.ok(Math.abs(result.cardTop-result.nativeTop)<.5,'opposite-corner native label stays level');
+    }
     assert.equal(result.inside,true);
     assert.equal(result.pointer,'none');
     assert.equal(result.cardOverlap,false);

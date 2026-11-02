@@ -66,10 +66,13 @@ Custom artwork uses Shopify resizing, responsive widths and intrinsic dimensions
 ## Collision policy
 
 Default top-left with 8px insets. Dawn cards reserve 38px above/below the badge
-when an existing sale/sold-out label occupies that edge. Existing labels retain
-their positions. Gift galleries keep price at top-right and flow the badge into
-a separate overlay row below the actual price height; bottom placements sit at
-the bottom of the photo. Top-left product badges reserve 48px vertically for Dawn’s zoom icon.
+only when an existing sale/sold-out label occupies the same corner; opposite
+corners stay level. Existing labels retain their positions. Gift galleries use
+a shared top row: Free Delivery at left and price at right, both at the price
+badge’s 8px inset, including when the configured badge Y offset is zero. The
+configured badge width is unchanged; price text wraps in the remaining right
+column on narrow cards. Alternate corner settings retain their previous behavior;
+bottom placements sit at the bottom of the photo. Top-left product badges reserve 48px vertically for Dawn’s zoom icon.
 The badges stay inside the image and do not change card dimensions.
 
 ## Validation and rollout
@@ -108,3 +111,17 @@ then deploy the theme through your normal review process.
 - Predictive search is supported in the result text column, not as an overlay on its 50px thumbnail.
 - The theme supports quick add through the main-product gallery; no separate quick-view renderer was found.
 - Source coverage is verified; live Shopify preview (including actual product metafields and uploaded artwork) remains a rollout check.
+
+
+## Top alignment correction
+
+The previous Gift Packs overlay used a flex column and deliberately put the
+Free Delivery badge below the price. This was a CSS positioning cause. Shared
+cards also reserved a full row for labels on the opposite corner; the reservation
+now applies only to the same corner. Uploaded badge images explicitly use block
+display, zero wrapper line-height, no image padding/margin/transform and
+`object-position: left top`, preserving existing width/max-height and artwork.
+The configured live PNG could not be inspected (HTTP 403), so intrinsic
+transparent padding cannot be ruled out. CSS does not remove transparent pixels
+inside the artwork; pixel-exact visible alignment requires artwork with a tight
+transparent canvas. No artwork or theme settings were changed.
