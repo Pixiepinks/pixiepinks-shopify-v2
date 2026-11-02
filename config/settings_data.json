@@ -132,7 +132,7 @@
     "pp_badge_size_desktop": 110,
     "pp_badge_size_mobile": 90,
     "pp_badge_offset_x": 3,
-    "pp_badge_offset_y": 3,
+    "pp_badge_offset_y": 0,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
