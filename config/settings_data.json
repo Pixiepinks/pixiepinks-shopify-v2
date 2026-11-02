@@ -131,6 +131,8 @@
     "pp_free_delivery_image": "shopify://shop_images/Glossy_Hot-Pink_Free_Delivery_Badge_a7a431d9-442e-4a68-ac59-4209c8e4b9c3.png",
     "pp_badge_size_desktop": 110,
     "pp_badge_size_mobile": 90,
+    "pp_badge_offset_x": 3,
+    "pp_badge_offset_y": 3,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
