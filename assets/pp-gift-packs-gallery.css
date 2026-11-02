@@ -38,9 +38,9 @@
 .pp-gift__slide { flex: 0 0 calc((100% - 24px) / 3); min-width: 0; scroll-snap-align: start; }
 .pp-gift__card { color: var(--pp-ink); text-decoration: none; border: 3px solid #fff; background: #fff; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; height: 100%; box-shadow: 0 3px 8px rgb(29 107 143 / .09); transition: box-shadow .2s ease, transform .2s ease; }
 .pp-gift__card:hover { box-shadow: 0 6px 16px rgb(29 63 111 / .18); transform: translateY(-3px); }
-.pp-gift__photo { position: relative; aspect-ratio: 4 / 5; flex: 0 0 auto; background: #f9fbfd; overflow: hidden; border-radius: 16px 16px 10px 10px; }
+.pp-gift__photo { position: relative; --pp-gift-price-top: 8px; aspect-ratio: 4 / 5; flex: 0 0 auto; background: #f9fbfd; overflow: hidden; border-radius: 16px 16px 10px 10px; }
 .pp-gift__photo > img { width: 100%; height: 100%; display: block; object-fit: contain; }
-.pp-gift__price { position: absolute; top: 8px; right: 6px; max-width: calc(100% - 12px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3px 6px; padding: 6px 9px; border-radius: 18px; background: #cf183c; color: #fff; font-size: clamp(11px, 1vw, 14px); font-weight: 700; line-height: 1.3; box-shadow: 0 2px 0 #fff, 0 3px 8px #9e15352b; overflow-wrap: anywhere; }
+.pp-gift__price { position: absolute; top: var(--pp-gift-price-top); right: 6px; max-width: calc(100% - 12px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3px 6px; padding: 6px 9px; border-radius: 18px; background: #cf183c; color: #fff; font-size: clamp(11px, 1vw, 14px); font-weight: 700; line-height: 1.3; box-shadow: 0 2px 0 #fff, 0 3px 8px #9e15352b; overflow-wrap: anywhere; }
 .pp-gift__price s { font-size: .8em; font-weight: 400; }
 .pp-gift__card-copy { padding: 9px 10px 12px; }
 .pp-gift__code { display: inline-block; background: var(--pp-accent); color: #fff; font-size: 11px; font-weight: 700; line-height: 1.4; border-radius: 8px; padding: 2px 7px; margin-bottom: 7px; max-width: 100%; overflow-wrap: anywhere; }

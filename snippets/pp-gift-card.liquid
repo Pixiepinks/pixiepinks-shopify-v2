@@ -10,7 +10,7 @@
     {%- else -%}
       <span class="pp-gift__missing">{% render 'pp-gift-icon', icon: 'gift' %}<span>{{ section.settings.missing_image | escape }}</span></span>
     {%- endif -%}
-    {%- if gift_badges != blank -%}<div class="pp-product-badges-gift-layer">{%- endif -%}
+    {%- if gift_badges != blank -%}<div class="pp-product-badges-gift-layer" style="--pp-gift-badge-desktop: {{ settings.pp_badge_size_desktop | default: 110 }}px; --pp-gift-badge-mobile: {{ settings.pp_badge_size_mobile | default: 90 }}px; --pp-gift-badge-x: {{ settings.pp_badge_offset_x | default: 8 }}px;">{%- endif -%}
     <span class="pp-gift__price">
       {%- if gift_variant.compare_at_price > gift_variant.price -%}
         <s><span class="pp-gift__sr">{{ 'products.product.price.regular_price' | t }} </span>{{ gift_variant.compare_at_price | money }}</s>
