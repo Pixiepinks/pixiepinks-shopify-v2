@@ -128,9 +128,9 @@
     "show_cart_note": true,
     "cart_drawer_collection": "",
     "pp_badges_enabled": true,
-    "pp_free_delivery_image": "shopify://shop_images/Glossy_Hot-Pink_Free_Delivery_Badge.png",
-    "pp_badge_size_desktop": 130,
-    "pp_badge_size_mobile": 105,
+    "pp_free_delivery_image": "shopify://shop_images/Glossy_Hot-Pink_Free_Delivery_Badge_a7a431d9-442e-4a68-ac59-4209c8e4b9c3.png",
+    "pp_badge_size_desktop": 110,
+    "pp_badge_size_mobile": 90,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
